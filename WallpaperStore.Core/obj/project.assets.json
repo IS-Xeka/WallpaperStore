@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Infrastructure\\WallpaperStore.Infrastructure.csproj",
-      "projectName": "WallpaperStore.Infrastructure",
-      "projectPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Infrastructure\\WallpaperStore.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
+      "projectName": "WallpaperStore.Core",
+      "projectPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
       "packagesPath": "C:\\Users\\xekai\\.nuget\\packages\\",
-      "outputPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Infrastructure\\obj\\",
+      "outputPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
