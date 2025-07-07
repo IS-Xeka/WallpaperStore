@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Git-Projects\\WallpaperStore\\",
+  "WorkspaceRootPath": "D:\\PetProjects\\WallpaperStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F013DB8-81B0-4A33-986B-5D11E1D26FC2}|WallpaperStore.API\\WallpaperStore.API.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.api\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{8F013DB8-81B0-4A33-986B-5D11E1D26FC2}|WallpaperStore.API\\WallpaperStore.API.csproj|solutionrelative:wallpaperstore.api\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{4E810218-9E86-4852-8FC0-D3CDDA992E1D}|WallpaperStore.Application\\WallpaperStore.Application.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.application\\wallpaperstore.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4E810218-9E86-4852-8FC0-D3CDDA992E1D}|WallpaperStore.Application\\WallpaperStore.Application.csproj|solutionrelative:wallpaperstore.application\\wallpaperstore.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.dataaccess\\repositories\\wallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\repositories\\wallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.core\\wallpaperstore.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|solutionrelative:wallpaperstore.core\\wallpaperstore.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F013DB8-81B0-4A33-986B-5D11E1D26FC2}|WallpaperStore.API\\WallpaperStore.API.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8F013DB8-81B0-4A33-986B-5D11E1D26FC2}|WallpaperStore.API\\WallpaperStore.API.csproj|solutionrelative:wallpaperstore.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\wallpaperstore.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\wallpaperstore.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F013DB8-81B0-4A33-986B-5D11E1D26FC2}|WallpaperStore.API\\WallpaperStore.API.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F013DB8-81B0-4A33-986B-5D11E1D26FC2}|WallpaperStore.API\\WallpaperStore.API.csproj|solutionrelative:wallpaperstore.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F013DB8-81B0-4A33-986B-5D11E1D26FC2}|WallpaperStore.API\\WallpaperStore.API.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.api\\wallpaperstore.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8F013DB8-81B0-4A33-986B-5D11E1D26FC2}|WallpaperStore.API\\WallpaperStore.API.csproj|solutionrelative:wallpaperstore.api\\wallpaperstore.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,60 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\Program.cs",
-              "RelativeDocumentMoniker": "WallpaperStore.API\\Program.cs",
-              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\Program.cs",
-              "RelativeToolTip": "WallpaperStore.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T14:54:23.882Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "WallpaperStore.API\\appsettings.Development.json",
-              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\appsettings.Development.json",
-              "RelativeToolTip": "WallpaperStore.API\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-02T14:58:06.676Z",
-              "IsPinned": true,
+              "DocumentIndex": 0,
+              "Title": "WallpaperStore.Application",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Application\\WallpaperStore.Application.csproj",
+              "RelativeDocumentMoniker": "WallpaperStore.Application\\WallpaperStore.Application.csproj",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Application\\WallpaperStore.Application.csproj",
+              "RelativeToolTip": "WallpaperStore.Application\\WallpaperStore.Application.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-07T12:26:22.855Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "WallpapersRepository.cs",
-              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
-              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
-              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
-              "RelativeToolTip": "WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEgAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T15:22:28.711Z",
+              "Title": "WallpaperStore.Core",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
+              "RelativeDocumentMoniker": "WallpaperStore.Core\\WallpaperStore.Core.csproj",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
+              "RelativeToolTip": "WallpaperStore.Core\\WallpaperStore.Core.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-07T12:26:19.375Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "docker-compose.yml",
-              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\docker-compose.yml",
-              "RelativeDocumentMoniker": "WallpaperStore.API\\docker-compose.yml",
-              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\docker-compose.yml",
-              "RelativeToolTip": "WallpaperStore.API\\docker-compose.yml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2025-07-02T15:01:05.065Z",
+              "DocumentIndex": 2,
+              "Title": "WallpaperStore.DataAccess",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-07T12:24:10.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WallpaperStore.API",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj",
+              "RelativeDocumentMoniker": "WallpaperStore.API\\WallpaperStore.API.csproj",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj",
+              "RelativeToolTip": "WallpaperStore.API\\WallpaperStore.API.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-07T12:26:11.497Z",
               "EditorCaption": ""
             }
           ]

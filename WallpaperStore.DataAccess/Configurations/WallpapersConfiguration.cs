@@ -4,7 +4,7 @@ using WallpaperStore.DataAccess.Entities;
 
 namespace WallpaperStore.DataAccess.Configurations;
 
-internal class WallpapersConfigurtion : IEntityTypeConfiguration<WallpaperEntity>
+internal class WallpapersConfiguration : IEntityTypeConfiguration<WallpaperEntity>
 {
     public void Configure(EntityTypeBuilder<WallpaperEntity> builder)
     {

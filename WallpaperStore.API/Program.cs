@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using WallpaperStore.Application.Services;
 using WallpaperStore.DataAccess;
+using WallpaperStore.DataAccess.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+
+builder.Services.AddScoped<IWallpapersRepository, WallpapersRepository>();
+builder.Services.AddScoped<IWallpapersService, WallpapersService>();
 
 builder.Services.AddDbContext<WallpaperStoreDbCOntext>(
     options =>
@@ -24,11 +30,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

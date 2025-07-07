@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WallpaperStore.Core.Models;
+using WallpaperStore.DataAccess.Entities;
 
 namespace WallpaperStore.DataAccess.Repositories;
 
@@ -71,5 +72,21 @@ public class WallpapersRepository : IWallpapersRepository
             .ExecuteUpdateAsync(wall => wall
                 .SetProperty(w => w.Title, title)
                 .SetProperty(w => w.Description, description));
+    }
+
+    public async Task<Guid> Create(Wallpaper wallpaper)
+    {
+        var wallpaperEntity = new WallpaperEntity
+        {
+            Id = wallpaper.Id,
+            Title = wallpaper.Title,
+            Description = wallpaper.Description,
+            Url = wallpaper.Url,
+            Price = wallpaper.Price
+        };
+
+        await _context.Wallpapers.AddAsync(wallpaperEntity);
+        await _context.SaveChangesAsync();
+        return wallpaperEntity.Id;
     }
 }
