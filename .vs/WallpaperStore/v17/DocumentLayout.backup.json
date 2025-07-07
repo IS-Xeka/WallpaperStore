@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Git-Projects\\WallpaperStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.dataaccess\\repositories\\wallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\repositories\\wallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.dataaccess\\wallpaperstore.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\wallpaperstore.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.dataaccess\\configurations\\wallpapersconfigurtion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\configurations\\wallpapersconfigurtion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.dataaccess\\wallpaperstoredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\wallpaperstoredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.dataaccess\\entities\\wallpaperentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\entities\\wallpaperentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|d:\\git-projects\\wallpaperstore\\wallpaperstore.core\\models\\wallpaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|solutionrelative:wallpaperstore.core\\models\\wallpaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WallpapersRepository.cs",
+              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
+              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs*",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs*",
+              "ViewState": "AgIAADIAAAAAAAAAAAAIwEYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T13:39:22.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WallpapersConfigurtion.cs",
+              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\Configurations\\WallpapersConfigurtion.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Configurations\\WallpapersConfigurtion.cs",
+              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\Configurations\\WallpapersConfigurtion.cs",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\Configurations\\WallpapersConfigurtion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T13:36:13.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WallpaperEntity.cs",
+              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\Entities\\WallpaperEntity.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Entities\\WallpaperEntity.cs",
+              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\Entities\\WallpaperEntity.cs",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\Entities\\WallpaperEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T13:33:34.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WallpaperStore.DataAccess.csproj",
+              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
+              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj*",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-29T13:30:28.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WallpaperStoreDbCOntext.cs",
+              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStoreDbCOntext.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\WallpaperStoreDbCOntext.cs",
+              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStoreDbCOntext.cs",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\WallpaperStoreDbCOntext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T13:30:49.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Wallpaper.cs",
+              "DocumentMoniker": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\Models\\Wallpaper.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.Core\\Models\\Wallpaper.cs",
+              "ToolTip": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\Models\\Wallpaper.cs",
+              "RelativeToolTip": "WallpaperStore.Core\\Models\\Wallpaper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T13:16:58.338Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

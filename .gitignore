@@ -33,7 +33,11 @@ ScaffoldingReadMe.txt
 
 # NuGet Packages
 *.nupkg
+<<<<<<< HEAD
 # NuGet Symbol Packages
+=======
+# NuGet Symbol Packagess
+>>>>>>> origin/master
 *.snupkg
 
 # Others
