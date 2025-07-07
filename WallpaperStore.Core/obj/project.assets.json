@@ -638,24 +638,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\xekai\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ishti\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
+      "projectUniqueName": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
       "projectName": "WallpaperStore.Core",
-      "projectPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
-      "packagesPath": "C:\\Users\\xekai\\.nuget\\packages\\",
-      "outputPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\obj\\",
+      "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
+      "packagesPath": "C:\\Users\\ishti\\.nuget\\packages\\",
+      "outputPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\xekai\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ishti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -663,7 +658,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -708,7 +702,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj": {}
+    "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj": {}
   },
   "projects": {
-    "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj": {
+    "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj",
+        "projectUniqueName": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj",
         "projectName": "WallpaperStore.API",
-        "projectPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj",
-        "packagesPath": "C:\\Users\\xekai\\.nuget\\packages\\",
-        "outputPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.API\\obj\\",
+        "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj",
+        "packagesPath": "C:\\Users\\ishti\\.nuget\\packages\\",
+        "outputPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\xekai\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ishti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,15 +22,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj": {
-                "projectPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj"
+              "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Application\\WallpaperStore.Application.csproj": {
+                "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Application\\WallpaperStore.Application.csproj"
+              },
+              "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj": {
+                "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj"
               }
             }
           }
@@ -57,6 +55,12 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -82,25 +86,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj": {
+    "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Application\\WallpaperStore.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
-        "projectName": "WallpaperStore.Core",
-        "projectPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
-        "packagesPath": "C:\\Users\\xekai\\.nuget\\packages\\",
-        "outputPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\obj\\",
+        "projectUniqueName": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Application\\WallpaperStore.Application.csproj",
+        "projectName": "WallpaperStore.Application",
+        "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Application\\WallpaperStore.Application.csproj",
+        "packagesPath": "C:\\Users\\ishti\\.nuget\\packages\\",
+        "outputPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\xekai\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ishti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -108,7 +108,70 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj": {
+                "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
+        "projectName": "WallpaperStore.Core",
+        "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
+        "packagesPath": "C:\\Users\\ishti\\.nuget\\packages\\",
+        "outputPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ishti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -153,25 +216,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj": {
+    "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
+        "projectUniqueName": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
         "projectName": "WallpaperStore.DataAccess",
-        "projectPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\xekai\\.nuget\\packages\\",
-        "outputPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.DataAccess\\obj\\",
+        "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ishti\\.nuget\\packages\\",
+        "outputPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\xekai\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ishti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -179,15 +238,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj": {
-                "projectPath": "D:\\Git-Projects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj"
+              "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj": {
+                "projectPath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj"
               }
             }
           }
@@ -209,17 +267,23 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[9.0.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[9.0.1, )"
             }
           },
           "imports": [
@@ -238,7 +302,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
