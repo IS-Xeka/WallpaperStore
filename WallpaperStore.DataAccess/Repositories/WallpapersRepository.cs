@@ -64,7 +64,7 @@ public class WallpapersRepository : IWallpapersRepository
     //        await _context.SaveChangesAsync();
     //    }
     //}
-
+        
     public async Task Update(Guid id, string title, string description)
     {
         await _context.Wallpapers
@@ -72,6 +72,7 @@ public class WallpapersRepository : IWallpapersRepository
             .ExecuteUpdateAsync(wall => wall
                 .SetProperty(w => w.Title, title)
                 .SetProperty(w => w.Description, description));
+        await _context.SaveChangesAsync();
     }
 
     public async Task<Guid> Create(Wallpaper wallpaper)

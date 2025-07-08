@@ -10,6 +10,6 @@ public class WallpaperStoreDbCOntext : DbContext
     {
 
     }
-
+    
     public DbSet<WallpaperEntity> Wallpapers {get; set;}
 }

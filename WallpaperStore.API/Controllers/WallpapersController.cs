@@ -15,6 +15,24 @@ public class WallpapersController : Controller
         _wallpapersService = wallpapersService;
     }
 
+    [HttpPost]
+    [Route("UpdateWallpaper")]
+    public async Task<ActionResult> UpdateWallpaper([FromBody] WallpaperUpdateResponse response)
+    {
+        await _wallpapersService.UpdateWallpaper(response.Id, response.Title, response.Description);
+        return Ok();
+    }
+    
+
+    [HttpDelete]
+    [Route("DeleteWallpaper")]
+
+    public async Task<ActionResult<Guid>> DeleteWallpaper([FromQuery] Guid id)
+    {
+        await _wallpapersService.DeleteWallpaper(id);
+        return Ok(id);
+    }
+
     [HttpGet]
     [Route("GetWallpapers")]
     public async Task<ActionResult<List<WallpaperResponse>>> GetWallpapers()
