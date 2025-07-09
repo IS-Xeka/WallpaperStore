@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "pob1lkKc8hquGWftfuby4yX47rY+cb0M/neBPc0VlSNXBM8eB2dLjjCsWBC+SidtEn4PCg+ZoGt7V36F260pVw==",
+  "dgSpecHash": "MeH6/u5yHsFqKYeo2U6bZ1PF6Gr/ti2ZazZjvma9YssqojN5GTheb/LZD1XgUbQWGtk5TffIJc3GnnIAHRxLtQ==",
   "success": true,
   "projectFilePath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\WallpaperStore.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ishti\\.nuget\\packages\\csharpfunctionalextensions\\3.6.0\\csharpfunctionalextensions.3.6.0.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.10\\microsoft.aspnetcore.openapi.8.0.10.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

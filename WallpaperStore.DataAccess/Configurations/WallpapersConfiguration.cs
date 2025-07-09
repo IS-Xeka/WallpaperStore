@@ -15,5 +15,6 @@ internal class WallpapersConfiguration : IEntityTypeConfiguration<WallpaperEntit
             .IsRequired();
         builder.Property(w => w.Description)
             .IsRequired();
+
     }
 }

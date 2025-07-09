@@ -8,8 +8,9 @@ public class WallpaperStoreDbCOntext : DbContext
     public WallpaperStoreDbCOntext(DbContextOptions<WallpaperStoreDbCOntext> options)
         : base(options)
     {
-
     }
     
     public DbSet<WallpaperEntity> Wallpapers {get; set;}
+    public DbSet<UserEntity> Users { get; set; }
+
 }

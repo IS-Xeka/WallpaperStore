@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "C7s2SaeeOy2MEv1v3glHQsa4C5FL65RgH2YVIR0VX20+H1rT6swYWYgngd8heC4P1AIjFHuNXvWW3X4ax0Fhkg==",
+  "dgSpecHash": "efRpZSHpq/amuCsI8N+/xMxYnmKBUJ3DRWJrW0PzbcdWVzo906U+Fdblt3M4WyGe3iwjGzIhF5b1XJbXo8hwBA==",
   "success": true,
   "projectFilePath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\WallpaperStore.Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ishti\\.nuget\\packages\\csharpfunctionalextensions\\3.6.0\\csharpfunctionalextensions.3.6.0.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0\\microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0\\microsoft.entityframeworkcore.analyzers.8.0.0.nupkg.sha512",

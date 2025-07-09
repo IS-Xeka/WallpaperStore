@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zVovX2cAZfNrhrS3NJwjH249YKnxLRQ2Q3pXZkVnVnmtqm5/WoGERJI1BZz9yKpbDkAbLyLMsckhJ7Q7EO+wDQ==",
+  "dgSpecHash": "tDFz4yhtPltD4l9bQhwha7VIBh1Vi7eNifMouofZrp+lNKXZvr566mEqUA6Otoh0r8Gxx3ouFj79WVQ1JZfmwg==",
   "success": true,
   "projectFilePath": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ishti\\.nuget\\packages\\csharpfunctionalextensions\\3.6.0\\csharpfunctionalextensions.3.6.0.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\ishti\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",
