@@ -1,4 +1,6 @@
-﻿namespace WallpaperStore.API.Contracts
+﻿using WallpaperStore.Core.Models;
+
+namespace WallpaperStore.API.Contracts
 {
     public record WallpaperRequest(
         string Title,

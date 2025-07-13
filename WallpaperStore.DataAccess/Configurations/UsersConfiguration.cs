@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CSharpFunctionalExtensions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using WallpaperStore.Core.Models;
 using WallpaperStore.DataAccess.Entities;
 
 namespace WallpaperStore.DataAccess.Configurations;
@@ -8,7 +10,34 @@ public class UsersConfiguration : IEntityTypeConfiguration<UserEntity>
 {
     public void Configure(EntityTypeBuilder<UserEntity> builder)
     {
+        //entity.Id,
+        //    entity.Name,
+        //    entity.Email,
+        //    entity.PasswordHash,
+        //    entity.RegisterDate,
+        //    entity.IsPublicProfile
         builder.HasKey(u => u.Id);
+
+        builder.Property(u => u.Name)
+            .IsRequired();
+        builder.Property(u => u.Email)
+            .IsRequired();
+        builder.Property(u => u.PasswordHash)
+            .IsRequired();
+        builder.Property(u => u.RegisterDate)
+            .IsRequired();
+        builder.Property(u => u.IsPublicProfile)
+            .IsRequired()
+            .HasDefaultValue(false);
+        builder.Property(u => u.Email)
+            .HasConversion(
+                email => email.Value,
+                dbValue => Email.Create(dbValue)
+            )
+            .HasMaxLength(100)
+            .HasColumnName("Email");
+
+
 
         builder.HasMany(u => u.AddedWallpapers)
             .WithOne(w => w.Owner)
@@ -16,6 +45,8 @@ public class UsersConfiguration : IEntityTypeConfiguration<UserEntity>
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasMany(u => u.SavedWallpapers)
-            .WithMany(w => w.SavedByUsers)
+            .WithOne(sw => sw.UserEntity)
+            .HasForeignKey(sw => sw.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

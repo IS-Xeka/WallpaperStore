@@ -1,9 +1,11 @@
 ﻿using CSharpFunctionalExtensions;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace WallpaperStore.Core.Models;
 
+[Owned]
 public class Email: ValueObject
 {
     public const uint MAX_LENGTH = 250;
@@ -31,10 +33,6 @@ public class Email: ValueObject
         }
         return new Email(value);
     }
-
-    public override string ToString() => Value;
-
-    public static implicit operator string(Email email) => email.Value;
 
     protected override IEnumerable<object> GetEqualityComponents()
     {

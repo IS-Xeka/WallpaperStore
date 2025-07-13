@@ -5,6 +5,8 @@
         string Title,
         string Description,
         string Url,
-        decimal Price
+        decimal Price,
+        Guid UserId,
+        string UserName
         );
 }

@@ -23,4 +23,8 @@
     <ProjectReference Include="..\WallpaperStore.Core\WallpaperStore.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CSharpFunctionalExtensions;
+using Microsoft.EntityFrameworkCore;
+using WallpaperStore.Application.Extensions;
 using WallpaperStore.Core.Models;
 using WallpaperStore.DataAccess.Entities;
 
@@ -6,8 +8,8 @@ namespace WallpaperStore.DataAccess.Repositories;
 
 public class WallpapersRepository : IWallpapersRepository
 {
-    private readonly WallpaperStoreDbCOntext _context;
-    public WallpapersRepository(WallpaperStoreDbCOntext context)
+    private readonly WallpaperStoreDbContext _context;
+    public WallpapersRepository(WallpaperStoreDbContext context)
     {
         _context = context;
     }
@@ -16,11 +18,10 @@ public class WallpapersRepository : IWallpapersRepository
     {
         var wallpaperEntites = await _context.Wallpapers
             .AsNoTracking()
+            .Include(w => w.Owner)
             .ToListAsync();
-
         var wallpapers = wallpaperEntites
-            .Select(w => Wallpaper.Create(w.Id, w.Title, w.Description, w.Url, w.Price).wallpaper).ToList();
-
+        .Select(w => w.ToDomain()).ToList();
         return wallpapers;
     }
 
@@ -39,16 +40,11 @@ public class WallpapersRepository : IWallpapersRepository
     {
         var wallpEntity = await _context.Wallpapers
             .AsNoTracking()
+            .Include(w => w.Owner)
             .FirstOrDefaultAsync(w => w.Id == id);
 
         return wallpEntity != null
-            ? Wallpaper.Create(
-                wallpEntity.Id,
-                wallpEntity.Title,
-                wallpEntity.Description,
-                wallpEntity.Url,
-                wallpEntity.Price
-                ).wallpaper
+            ? wallpEntity.ToDomain()
             : null;
     }
 
@@ -83,7 +79,16 @@ public class WallpapersRepository : IWallpapersRepository
             Title = wallpaper.Title,
             Description = wallpaper.Description,
             Url = wallpaper.Url,
-            Price = wallpaper.Price
+            Price = wallpaper.Price,
+            Owner = new UserEntity
+            {
+                Id = wallpaper.Owner.Id,
+                Name = wallpaper.Owner.Name,
+                Email = wallpaper.Owner.Email,
+                PasswordHash = wallpaper.Owner.PasswordHash,
+                RegisterDate = wallpaper.Owner.RegisterDate,
+                IsPublicProfile = wallpaper.Owner.IsPublicProfile
+            }
         };
 
         await _context.Wallpapers.AddAsync(wallpaperEntity);

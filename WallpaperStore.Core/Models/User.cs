@@ -5,19 +5,19 @@ namespace WallpaperStore.Core.Models;
 public class User
 {
     public const uint MAX_NAME_LENGTH = 50;
-    public Guid Id { get; private set; }
-    public string Name { get; private set; } = string.Empty;
-    public Email Email { get; private set; }
-    public string PasswordHash { get; private set; } = string.Empty;
-    public DateTime? RegisterDate { get; private set; }
+    public Guid Id { get; }
+    public string Name { get; } = string.Empty;
+    public Email Email { get; }
+    public string PasswordHash { get; } = string.Empty;
+    public DateTime RegisterDate { get; }
     public DateTime? LastTimeOnline { get; private set; }
     public bool IsOnline { get; private set; } = false;
     public bool IsPublicProfile { get; private set; } = true;
 
-    private readonly List<Wallpaper> _addedWallpapers = [];
-    private readonly List<Wallpaper> _savedWallpapers = [];
+    private readonly List<Wallpaper> _addedWallpapers = new ();
+    private readonly List<UserSavedWallpaper> _savedWallpapers = new ();
     public IReadOnlyCollection<Wallpaper> AddedWallpapers => _addedWallpapers.AsReadOnly();
-    public IReadOnlyCollection<Wallpaper> SavedWallpapers => _savedWallpapers.AsReadOnly();
+    public IReadOnlyCollection<UserSavedWallpaper> SavedWallpapers => _savedWallpapers.AsReadOnly();
 
     private User(Guid id, string name, Email email, string passwordHash, DateTime registerDate, bool isPublicProfile = true)
     {
@@ -43,37 +43,35 @@ public class User
         return new User(id, name, email, passwordHash, registerDate, isPublicProfile);
     }
 
+    public void SaveWallpaper(Wallpaper wallpaper, bool isFavorite = false)
+    {
+        IsValidWallpaper(wallpaper);
+        if (_addedWallpapers.Any(w => w.Id == wallpaper.Id))
+            throw new InvalidOperationException($"Cannot save own wallpaper, {wallpaper.Id}");
+        if (_savedWallpapers.Any(w => w.WallpaperId == wallpaper.Id))
+            throw new InvalidOperationException($"Wallpaper has been saved, {wallpaper.Id}");
+        _savedWallpapers.Add(UserSavedWallpaper.Create(this, wallpaper, isFavorite));
+    }
+    public void RemoveSavedWallpaper(Wallpaper wallpaper)
+    {
+        IsValidWallpaper(wallpaper);
+        var removeWallpaper = _savedWallpapers.FirstOrDefault(sw => sw.WallpaperId == wallpaper.Id)
+            ?? throw new ArgumentException(nameof(wallpaper), $"Wallpaper with ID {wallpaper.Id} not found in saved collection");
+        _savedWallpapers.Remove(removeWallpaper);
+    }
     public void AddWallpaper(Wallpaper wallpaper)
     {
         IsValidWallpaper(wallpaper);
         if (_addedWallpapers.Any(w => w.Id == wallpaper.Id))
-        {
-            throw new ArgumentException($"Wallpaper has been added. {nameof(wallpaper)}");
-        }
+            throw new InvalidOperationException($"Wallpaper has been added. {wallpaper.Id}");
         _addedWallpapers.Add(wallpaper);
-    }
-    public void SaveWallpaper(Wallpaper wallpaper)
-    {
-        IsValidWallpaper(wallpaper);
-        if (_addedWallpapers.Any(w => w.Id == wallpaper.Id))
-        {
-            throw new ArgumentException($"Wallpaper has been saved. {nameof(wallpaper)}");
-        }
-        _savedWallpapers.Add(wallpaper);
     }
     public void RemoveAddedWallpaper(Wallpaper wallpaper)
     {
         IsValidWallpaper(wallpaper);
         var removeWallpaper = _addedWallpapers.FirstOrDefault(w => w.Id == wallpaper.Id)
-            ?? throw new ArgumentException($"Wallpaper can not be found. {nameof(wallpaper)}");
+            ?? throw new ArgumentException(nameof(wallpaper), $"Wallpaper with ID {wallpaper.Id} not found in saved collection");
         _addedWallpapers.Remove(removeWallpaper);
-    }
-    public void RemoveSavedWallpaper(Wallpaper wallpaper)
-    {
-        IsValidWallpaper(wallpaper);
-        var removeWallpaper = _savedWallpapers.FirstOrDefault(w => w.Id == wallpaper.Id)
-            ?? throw new ArgumentException($"Wallpaper can not be found. {nameof(wallpaper)}");
-        _savedWallpapers.Remove(removeWallpaper);
     }
 
     public void Login()
@@ -84,14 +82,14 @@ public class User
     public void LogOut()
     {
         IsOnline = false;
-        LastTimeOnline  = DateTime.Now;
+        LastTimeOnline  = DateTime.UtcNow;
     }
 
-    private void IsValidWallpaper(Wallpaper wallpaper)
+    private static void IsValidWallpaper(Wallpaper wallpaper)
     {
         if(wallpaper == null)
         {
-            throw new ArgumentNullException($"Wallpaper can not be null. {wallpaper}");
+            throw new ArgumentNullException(nameof(wallpaper), $"Wallpaper can not be null.");
         }
     }
 }

@@ -16,5 +16,10 @@ internal class WallpapersConfiguration : IEntityTypeConfiguration<WallpaperEntit
         builder.Property(w => w.Description)
             .IsRequired();
 
+        builder.HasOne(w => w.Owner)
+            .WithMany(u => u.AddedWallpapers)
+            .HasForeignKey(w => w.OwnerId)
+            .OnDelete(DeleteBehavior.Cascade);
+
     }
 }

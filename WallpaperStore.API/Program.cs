@@ -14,10 +14,10 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IWallpapersRepository, WallpapersRepository>();
 builder.Services.AddScoped<IWallpapersService, WallpapersService>();
 
-builder.Services.AddDbContext<WallpaperStoreDbCOntext>(
+builder.Services.AddDbContext<WallpaperStoreDbContext>(
     options =>
     {
-        options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(WallpaperStoreDbCOntext)));
+        options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(WallpaperStoreDbContext)));
     });
 
 var app = builder.Build();

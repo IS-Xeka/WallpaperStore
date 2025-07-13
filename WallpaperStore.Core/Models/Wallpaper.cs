@@ -11,9 +11,6 @@ public class Wallpaper
     public string Description { get; private set; } = string.Empty;
     public string Url { get; private set; } = string.Empty;
     public decimal Price { get; private set; }
-
-    public ICollection<User> SavedyUsers = new List<User>();
-
     private Wallpaper(Guid id, string title, string description, string url, decimal price, User owner)
     {
         Id = id; 

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WallpaperStore.DataAccess;
@@ -11,9 +12,11 @@ using WallpaperStore.DataAccess;
 namespace WallpaperStore.DataAccess.Migrations
 {
     [DbContext(typeof(WallpaperStoreDbContext))]
-    partial class WallpaperStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250713135616_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
