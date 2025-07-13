@@ -10,12 +10,6 @@ public class UsersConfiguration : IEntityTypeConfiguration<UserEntity>
 {
     public void Configure(EntityTypeBuilder<UserEntity> builder)
     {
-        //entity.Id,
-        //    entity.Name,
-        //    entity.Email,
-        //    entity.PasswordHash,
-        //    entity.RegisterDate,
-        //    entity.IsPublicProfile
         builder.HasKey(u => u.Id);
 
         builder.Property(u => u.Name)
