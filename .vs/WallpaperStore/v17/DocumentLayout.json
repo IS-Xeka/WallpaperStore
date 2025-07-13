@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\PetProjects\\WallpaperStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\repositories\\wallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\repositories\\wallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\extensions\\userentityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\extensions\\userentityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\extensions\\usersavedwallpapersentityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\extensions\\usersavedwallpapersentityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\entities\\usersavedwallpapersentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,12 +23,32 @@
       "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\configurations\\usersconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\configurations\\usersconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|solutionrelative:wallpaperstore.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\extensions\\userentityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\extensions\\userentityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\extensions\\wallpaperentityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\extensions\\wallpaperentityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.core\\models\\usersavedwallpaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|solutionrelative:wallpaperstore.core\\models\\usersavedwallpaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\repositories\\wallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\repositories\\wallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\wallpaperstoredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\wallpaperstoredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.core\\abstractions\\iwallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86FBF0DB-FD3E-4EBA-BB1D-CA4C87AD2BB6}|WallpaperStore.Core\\WallpaperStore.Core.csproj|solutionrelative:wallpaperstore.core\\abstractions\\iwallpapersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\configurations\\usersconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|solutionrelative:wallpaperstore.dataaccess\\configurations\\usersconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B894000E-30E2-4D47-95DC-52D24BA415BA}|WallpaperStore.DataAccess\\WallpaperStore.DataAccess.csproj|d:\\petprojects\\wallpaperstore\\wallpaperstore.dataaccess\\migrations\\wallpaperstoredbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,11 +70,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "WallpaperUpdateResponse.cs",
               "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.API\\Contracts\\WallpaperUpdateResponse.cs",
               "RelativeDocumentMoniker": "WallpaperStore.API\\Contracts\\WallpaperUpdateResponse.cs",
@@ -59,103 +83,141 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-07T18:35:27.123Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UsersConfiguration.cs",
-              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Configurations\\UsersConfiguration.cs",
-              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Configurations\\UsersConfiguration.cs",
-              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Configurations\\UsersConfiguration.cs",
-              "RelativeToolTip": "WallpaperStore.DataAccess\\Configurations\\UsersConfiguration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T14:58:39.036Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Models\\User.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.Core\\Models\\User.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Models\\User.cs",
+              "RelativeToolTip": "WallpaperStore.Core\\Models\\User.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAmwEgAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T19:52:23.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserSavedWallpaper.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Models\\UserSavedWallpaper.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.Core\\Models\\UserSavedWallpaper.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Models\\UserSavedWallpaper.cs",
+              "RelativeToolTip": "WallpaperStore.Core\\Models\\UserSavedWallpaper.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwAIAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T19:44:53.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserSavedWallpapersEntityExtensions.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Extensions\\UserSavedWallpapersEntityExtensions.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Extensions\\UserSavedWallpapersEntityExtensions.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Extensions\\UserSavedWallpapersEntityExtensions.cs",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\Extensions\\UserSavedWallpapersEntityExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T19:43:48.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WallpaperStoreDbContext.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStoreDbContext.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\WallpaperStoreDbContext.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\WallpaperStoreDbContext.cs",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\WallpaperStoreDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T19:40:05.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WallpaperEntityExtensions.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Extensions\\WallpaperEntityExtensions.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Extensions\\WallpaperEntityExtensions.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Extensions\\WallpaperEntityExtensions.cs",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\Extensions\\WallpaperEntityExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T19:37:21.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IWallpapersRepository.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Abstractions\\IWallpapersRepository.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.Core\\Abstractions\\IWallpapersRepository.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Abstractions\\IWallpapersRepository.cs",
+              "RelativeToolTip": "WallpaperStore.Core\\Abstractions\\IWallpapersRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T19:28:50.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "UserEntityExtensions.cs",
               "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Extensions\\UserEntityExtensions.cs",
               "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Extensions\\UserEntityExtensions.cs",
               "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Extensions\\UserEntityExtensions.cs",
               "RelativeToolTip": "WallpaperStore.DataAccess\\Extensions\\UserEntityExtensions.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwCoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T14:58:36.267Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "WallpaperStoreDbContextModelSnapshot.cs",
-              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Migrations\\WallpaperStoreDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Migrations\\WallpaperStoreDbContextModelSnapshot.cs",
-              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Migrations\\WallpaperStoreDbContextModelSnapshot.cs",
-              "RelativeToolTip": "WallpaperStore.DataAccess\\Migrations\\WallpaperStoreDbContextModelSnapshot.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T14:58:34.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "WallpapersRepository.cs",
               "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
               "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
               "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
               "RelativeToolTip": "WallpaperStore.DataAccess\\Repositories\\WallpapersRepository.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAA0wEwAAAAAAAAA",
+              "ViewState": "AQIAACYAAAAAAAAAAAAwwFIAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T14:57:55.131Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UsersRepository.cs",
               "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Repositories\\UsersRepository.cs",
               "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Repositories\\UsersRepository.cs",
               "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Repositories\\UsersRepository.cs",
               "RelativeToolTip": "WallpaperStore.DataAccess\\Repositories\\UsersRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAJAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAACAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T14:57:54.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserSavedWallpapersEntity.cs",
               "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Entities\\UserSavedWallpapersEntity.cs",
               "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Entities\\UserSavedWallpapersEntity.cs",
               "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Entities\\UserSavedWallpapersEntity.cs",
               "RelativeToolTip": "WallpaperStore.DataAccess\\Entities\\UserSavedWallpapersEntity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAbAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T14:57:50.52Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Email.cs",
-              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Models\\Email.cs",
-              "RelativeDocumentMoniker": "WallpaperStore.Core\\Models\\Email.cs",
-              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Models\\Email.cs",
-              "RelativeToolTip": "WallpaperStore.Core\\Models\\Email.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T14:57:46.119Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UserEntity.cs",
               "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Entities\\UserEntity.cs",
               "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Entities\\UserEntity.cs",
@@ -165,6 +227,42 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-09T09:19:38.828Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "WallpaperStoreDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Migrations\\WallpaperStoreDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Migrations\\WallpaperStoreDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Migrations\\WallpaperStoreDbContextModelSnapshot.cs",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\Migrations\\WallpaperStoreDbContextModelSnapshot.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T14:58:34.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UsersConfiguration.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Configurations\\UsersConfiguration.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.DataAccess\\Configurations\\UsersConfiguration.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.DataAccess\\Configurations\\UsersConfiguration.cs",
+              "RelativeToolTip": "WallpaperStore.DataAccess\\Configurations\\UsersConfiguration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T14:58:39.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Email.cs",
+              "DocumentMoniker": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Models\\Email.cs",
+              "RelativeDocumentMoniker": "WallpaperStore.Core\\Models\\Email.cs",
+              "ToolTip": "D:\\PetProjects\\WallpaperStore\\WallpaperStore.Core\\Models\\Email.cs",
+              "RelativeToolTip": "WallpaperStore.Core\\Models\\Email.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T14:57:46.119Z"
             }
           ]
         }
