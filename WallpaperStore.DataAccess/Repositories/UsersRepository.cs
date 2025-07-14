@@ -72,7 +72,7 @@ namespace WallpaperStore.DataAccess.Repositories
             return Result.Success(userEntity.Id);
         }
 
-        public async Task<Result<List<User>>> GetUsers()
+        public async Task<Result<List<User>>> Get()
         {
             var userEntites = await _context.Users
                 .AsNoTracking()
@@ -84,7 +84,7 @@ namespace WallpaperStore.DataAccess.Repositories
             return Result.Success(users);
         }
 
-        public async Task<Result<List<User>>> GetUsersWithWallpapers()
+        public async Task<Result<List<User>>> GetWithWallpapers()
         {
             var userEntites = await _context.Users
                     .AsNoTracking()

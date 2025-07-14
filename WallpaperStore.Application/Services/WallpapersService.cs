@@ -12,91 +12,108 @@ public class WallpapersService : IWallpapersService
         _wallpaperRepository = wallpapersRepository;
     }
 
-    public async Result<Task> UpdateWallpaper(Guid id, string title, string description)
+    public async Task<Result<Guid>> UpdateWallpaper(Guid id, string title, string description)
     {
         try
         {
             var updateResult = await _wallpaperRepository.Update(id, title, description);
-            return Result.Success(updateResult);
+            if (updateResult.IsFailure)
+                return Result.Failure<Guid>(updateResult.Error);
+
+            return Result.Success(updateResult.Value);
         }
         catch (Exception ex)
         {
-
             throw new ArgumentNullException(ex.Message);
         }
     }
 
-    public async Task<Guid> DeleteWallpaper(Guid id)
+    public async Task<Result<Guid>> DeleteWallpaper(Guid id)
     {
         try
         {
-            await _wallpaperRepository.DeleteWallpaper(id);
-            return id;
+            var deleteResult = await _wallpaperRepository.DeleteWallpaper(id);
+            if(deleteResult.IsFailure)
+                return Result.Failure<Guid>(deleteResult.Error);
+            return Result.Success(deleteResult.Value);
         }
         catch (Exception ex)
         {
-
-            throw new Exception(ex.Message);
+            throw new InvalidOperationException(ex.Message);
         }
     }
     
-    public async Task<Guid> CreateWallpaper(Wallpaper wallpaper)
+    public async Task<Result<Guid>> CreateWallpaper(Wallpaper wallpaper)
     {
         try
         {
-            var wallpaperId = await _wallpaperRepository.Create(wallpaper);
-            return wallpaperId;
+            var createResult = await _wallpaperRepository.Create(wallpaper);
+            if (createResult.IsFailure)
+                return Result.Failure<Guid>(createResult.Error);
+            return Result.Success(createResult.Value);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!    " + ex);
-            throw new Exception(ex.Message);
+            throw new InvalidOperationException(ex.Message);
         }
     }
-    public async Task<List<Wallpaper>> GetWallpapers()
+    public async Task<Result<List<Wallpaper>>> GetWallpapers()
     {
         try
         {
-            return await _wallpaperRepository.GetWallpapers();
+            var getResult = await _wallpaperRepository.GetWallpapers();
+            if (getResult.IsFailure)
+                return Result.Failure<List<Wallpaper>>(getResult.Error);
+            return Result.Success(getResult.Value);
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            throw new InvalidOperationException(ex.Message);
         }
     }
 
-    public Task<Result<Guid>> Create(Wallpaper wallpaper)
+    public async Task<Result<Wallpaper>> GetById(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var getByIdResult = await _wallpaperRepository.GetById(id);
+            if (getByIdResult.IsFailure)
+                return Result.Failure<Wallpaper>(getByIdResult.Error);
+            return Result.Success(getByIdResult.Value);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
+        }
     }
 
-    Task<Result<Guid>> IWallpapersService.DeleteWallpaper(Guid id)
+    public async Task<Result<Wallpaper>> GetByIdWithOwner(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var getByIdWithOwnerResult = await _wallpaperRepository.GetByIdWithOwner(id);
+            if (getByIdWithOwnerResult.IsFailure)
+                return Result.Failure<Wallpaper>(getByIdWithOwnerResult.Error);
+            return Result.Success(getByIdWithOwnerResult.Value);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
+        }
     }
 
-    public Task<Result<Wallpaper>> GetById(Guid id)
+    public async Task<Result<List<Wallpaper>>> GetWallpapersWithOwners()
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<Result<Wallpaper>> GetByIdWithOwner(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    Task<Result<List<Wallpaper>>> IWallpapersService.GetWallpapers()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Result<List<Wallpaper>>> GetWallpapersWithOwners()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Result> Update(Guid id, string title, string description)
-    {
-        throw new NotImplementedException();
+        try
+        {
+            var getWithOwnersResult = await _wallpaperRepository.GetWallpapersWithOwners();
+            if (getWithOwnersResult.IsFailure)
+                return Result.Failure<List<Wallpaper>>(getWithOwnersResult.Error);
+            return Result.Success(getWithOwnersResult.Value);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
+        }
     }
 }

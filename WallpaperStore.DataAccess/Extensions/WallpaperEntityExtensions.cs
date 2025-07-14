@@ -15,4 +15,15 @@ public static class WallpaperEntityExtensions
             entity.Price,
             entity.Owner.ToDomain());
     }
+
+    public static Wallpaper ToDomainWithOwner(this WallpaperEntity entity)
+    {
+        return Wallpaper.Create(
+            entity.Id,
+            entity.Title,
+            entity.Description,
+            entity.Url,
+            entity.Price,
+            entity.Owner.ToDomain());
+    }
 }

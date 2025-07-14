@@ -11,6 +11,6 @@ namespace WallpaperStore.DataAccess.Repositories
         Task<Result<Wallpaper>> GetByIdWithOwner(Guid id);
         Task<Result<List<Wallpaper>>> GetWallpapers();
         Task<Result<List<Wallpaper>>> GetWallpapersWithOwners();
-        Task<Result> Update(Guid id, string title, string description);
+        Task<Result<Guid>> Update(Guid id, string title, string description);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CSharpFunctionalExtensions;
+using System.Collections.Generic;
 using WallpaperStore.Core.Models;
 using WallpaperStore.DataAccess.Repositories;
 
@@ -12,6 +13,21 @@ public class UserService : IUserService
         _usersRepository = usersRepository;
     }
 
+    public async Task<Result<Guid>> AddWallpaper(Guid userId, Wallpaper wallpaper)
+    {
+        try
+        {
+            var addResult = await _usersRepository.AddWallpaper(userId, wallpaper);
+            if (addResult.IsFailure)
+                return Result.Failure<Guid>(addResult.Error);
+            return Result.Success(addResult.Value);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
+        }
+    }
+
     public async Task<Result<Guid>> CreateUser(User user)
     {
         try
@@ -21,9 +37,39 @@ public class UserService : IUserService
                 return Result.Failure<Guid>(userCreateResult.Error);
             return Result.Success(userCreateResult.Value);
         }
-        catch
+        catch(Exception ex)
         {
-            throw new InvalidOperationException("Can't create user");
+            throw new InvalidOperationException(ex.Message);
+        }
+    }
+
+    public async Task<Result<List<User>>> GetAll()
+    {
+        try
+        {
+            var getResult = await _usersRepository.Get();
+            if (getResult.IsFailure)
+                return Result.Failure<List<User>>(getResult.Error);
+            return Result.Success(getResult.Value);
+        }
+        catch(Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
+        }
+    }
+
+    public async Task<Result<List<User>>> GetAllWithWallpapers()
+    {
+        try
+        {
+            var getAllResult = await _usersRepository.GetWithWallpapers();
+            if (getAllResult.IsFailure)
+                return Result.Failure<List<User>>(getAllResult.Error);
+            return Result.Success(getAllResult.Value);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
         }
     }
 
@@ -31,14 +77,14 @@ public class UserService : IUserService
     {
         try
         {
-            var userGetResult = await _usersRepository.GetById(id);
-            if (userGetResult.IsFailure)
-                return Result.Failure<User>(userGetResult.Error);
-            return Result.Success(userGetResult.Value);
+            var getByIdResult = await _usersRepository.GetById(id);
+            if (getByIdResult.IsFailure)
+                return Result.Failure<User>(getByIdResult.Error);
+            return Result.Success(getByIdResult.Value);
         }
-        catch
+        catch(Exception ex)
         {
-            throw new InvalidOperationException("Can't get user");
+            throw new InvalidOperationException(ex.Message);
         }
     }
 
@@ -46,14 +92,29 @@ public class UserService : IUserService
     {
         try
         {
-            var userGetResult = await _usersRepository.GetByIdWithWallpapers(id);
-            if (userGetResult.IsFailure)
-                return Result.Failure<User>(userGetResult.Error);
-            return Result.Success(userGetResult.Value);
+            var getByIdWithWallpapersResult = await _usersRepository.GetByIdWithWallpapers(id);
+            if (getByIdWithWallpapersResult.IsFailure)
+                return Result.Failure<User>(getByIdWithWallpapersResult.Error);
+            return Result.Success(getByIdWithWallpapersResult.Value);
         }
-        catch
+        catch(Exception ex)
         {
-            throw new InvalidOperationException("Can't get user");
+            throw new InvalidOperationException(ex.Message);
+        }
+    }
+
+    public async Task<Result<Guid>> SaveWallpaper(Guid userId, Guid wallaperId, bool isFavorite)
+    {
+        try
+        {
+            var saveWallpaperResult = await _usersRepository.SaveWallpaper(userId, wallaperId, isFavorite);
+            if (saveWallpaperResult.IsFailure)
+                return Result.Failure<Guid>(saveWallpaperResult.Error);
+            return Result.Success(saveWallpaperResult.Value);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
         }
     }
 
@@ -61,14 +122,14 @@ public class UserService : IUserService
     {
         try
         {
-            var userUpdateResult = await _usersRepository.Update(id, name);
-            if (userUpdateResult.IsFailure)
-                return Result.Failure<Guid>(userUpdateResult.Error);
-            return Result.Success(userUpdateResult.Value);
+            var updateResult = await _usersRepository.Update(id, name);
+            if (updateResult.IsFailure)
+                return Result.Failure<Guid>(updateResult.Error);
+            return Result.Success(updateResult.Value);
         }
-        catch
+        catch(Exception ex)
         {
-            throw new InvalidOperationException("Can't update user");
+            throw new InvalidOperationException(ex.Message);
         }
     }
 }

@@ -18,6 +18,7 @@ public class WallpapersRepository : IWallpapersRepository
     {
         var wallpaperEntites = await _context.Wallpapers
             .AsNoTracking()
+            .Include(w => w.Owner)
             .ToListAsync();
         if (!wallpaperEntites.Any())
             return Result.Failure<List<Wallpaper>>("Wallpapers not found");
@@ -35,7 +36,7 @@ public class WallpapersRepository : IWallpapersRepository
         if (!wallpaperEntites.Any())
             return Result.Failure<List<Wallpaper>>("Wallpapers not found");
         var wallpapers = wallpaperEntites
-        .Select(w => w.ToDomain()).ToList();
+        .Select(w => w.ToDomainWithOwner()).ToList();
         return Result.Success(wallpapers);
     }
 
@@ -72,20 +73,20 @@ public class WallpapersRepository : IWallpapersRepository
         if (wallpaperEntity == null)
             return Result.Failure<Wallpaper>("Wallpaper not found");
 
-        return Result.Success(wallpaperEntity.ToDomain());
+        return Result.Success(wallpaperEntity.ToDomainWithOwner());
     }
 
-    public async Task<Result> Update(Guid id, string title, string description)
+    public async Task<Result<Guid>> Update(Guid id, string title, string description)
     {
         if (!await _context.Wallpapers.AnyAsync(w => w.Id == id))
-            return Result.Failure("Not found wallpaper");
+            return Result.Failure<Guid>("Not found wallpaper");
         await _context.Wallpapers
             .Where(w => w.Id == id)
             .ExecuteUpdateAsync(wall => wall
                 .SetProperty(w => w.Title, title)
                 .SetProperty(w => w.Description, description));
         await _context.SaveChangesAsync();
-        return Result.Success();
+        return Result.Success(id);
     }
 
     public async Task<Result<Guid>> Create(Wallpaper wallpaper)
