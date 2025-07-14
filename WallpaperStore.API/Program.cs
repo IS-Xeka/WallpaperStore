@@ -13,6 +13,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IWallpapersRepository, WallpapersRepository>();
 builder.Services.AddScoped<IWallpapersService, WallpapersService>();
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddDbContext<WallpaperStoreDbContext>(
     options =>

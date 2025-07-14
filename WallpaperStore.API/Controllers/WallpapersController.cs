@@ -10,17 +10,19 @@ namespace WallpaperStore.API.Controllers;
 public class WallpapersController : Controller
 {
     private readonly IWallpapersService _wallpapersService;
-    public WallpapersController(IWallpapersService wallpapersService)
+    private readonly IUserService _userService;
+    public WallpapersController(IWallpapersService wallpapersService, IUserService userService)
     {
         _wallpapersService = wallpapersService;
+        _userService = userService;
     }
 
     [HttpPost]
     [Route("UpdateWallpaper")]
-    public async Task<ActionResult> UpdateWallpaper([FromBody] WallpaperUpdateResponse response)
+    public async Task<ActionResult<Guid>> UpdateWallpaper([FromBody] WallpaperUpdateResponse response)
     {
-        await _wallpapersService.UpdateWallpaper(response.Id, response.Title, response.Description);
-        return Ok();
+        var updateResult = await _wallpapersService.UpdateWallpaper(response.Id, response.Title, response.Description);
+        return Ok(updateResult.Value);
     }
     
 
@@ -29,8 +31,8 @@ public class WallpapersController : Controller
 
     public async Task<ActionResult<Guid>> DeleteWallpaper([FromQuery] Guid id)
     {
-        await _wallpapersService.DeleteWallpaper(id);
-        return Ok(id);
+        var deleteResult = await _wallpapersService.DeleteWallpaper(id);
+        return Ok(deleteResult.Value);
     }
 
     [HttpGet]
@@ -38,15 +40,13 @@ public class WallpapersController : Controller
     public async Task<ActionResult<List<WallpaperResponse>>> GetWallpapers()
     {
         var wallpapers =  await _wallpapersService.GetWallpapers();
-        var wallpapersResponse = wallpapers.Select(w => new WallpaperResponse
+        var wallpapersResponse = wallpapers.Value.Select(w => new WallpaperResponse
         (
             w.Id,
             w.Title,
             w.Description,
             w.Url,
-            w.Price,
-            w.Owner.Id,
-            w.Owner.Name
+            w.Price
         ));
         return Ok(wallpapersResponse);
     }
@@ -55,17 +55,17 @@ public class WallpapersController : Controller
     [Route("CreateWallpaper")]
     public async Task<ActionResult<Guid>> CreateWallpaper([FromBody] WallpaperRequest request)
     {
-        var user = Core.Models.User.Create(Guid.NewGuid(), "Ishtimir", new Email("ish.ron@yande.ru"), "sssss", DateTime.UtcNow, true);
+        var userResult = await _userService.GetUserById(request.OwenerId);
         var wallpaper = Wallpaper.Create(
             Guid.NewGuid(),
             request.Title,
             request.Description,
             request.Url,
             request.Price,
-            user
+            userResult.Value
             );
 
         var wallpaperId = await _wallpapersService.CreateWallpaper(wallpaper);
-        return Ok(wallpaperId);
+        return Ok(wallpaperId.Value);
     }
 }
