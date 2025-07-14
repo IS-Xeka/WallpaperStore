@@ -1,4 +1,5 @@
-﻿using WallpaperStore.Core.Models;
+﻿using CSharpFunctionalExtensions;
+using WallpaperStore.Core.Models;
 using WallpaperStore.DataAccess.Repositories;
 
 namespace WallpaperStore.Application.Services;
@@ -11,11 +12,12 @@ public class WallpapersService : IWallpapersService
         _wallpaperRepository = wallpapersRepository;
     }
 
-    public async Task UpdateWallpaper(Guid id, string title, string description)
+    public async Result<Task> UpdateWallpaper(Guid id, string title, string description)
     {
         try
         {
-            await _wallpaperRepository.Update(id, title, description);
+            var updateResult = await _wallpaperRepository.Update(id, title, description);
+            return Result.Success(updateResult);
         }
         catch (Exception ex)
         {
@@ -61,5 +63,40 @@ public class WallpapersService : IWallpapersService
         {
             throw new Exception(ex.Message);
         }
+    }
+
+    public Task<Result<Guid>> Create(Wallpaper wallpaper)
+    {
+        throw new NotImplementedException();
+    }
+
+    Task<Result<Guid>> IWallpapersService.DeleteWallpaper(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Result<Wallpaper>> GetById(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Result<Wallpaper>> GetByIdWithOwner(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    Task<Result<List<Wallpaper>>> IWallpapersService.GetWallpapers()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Result<List<Wallpaper>>> GetWallpapersWithOwners()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Result> Update(Guid id, string title, string description)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -19,7 +19,7 @@ public class WallpapersRepository : IWallpapersRepository
         var wallpaperEntites = await _context.Wallpapers
             .AsNoTracking()
             .ToListAsync();
-        if (wallpaperEntites == null)
+        if (!wallpaperEntites.Any())
             return Result.Failure<List<Wallpaper>>("Wallpapers not found");
         var wallpapers = wallpaperEntites
         .Select(w => w.ToDomain()).ToList();
@@ -32,7 +32,7 @@ public class WallpapersRepository : IWallpapersRepository
             .AsNoTracking()
             .Include(w => w.Owner)
             .ToListAsync();
-        if (wallpaperEntites == null)
+        if (!wallpaperEntites.Any())
             return Result.Failure<List<Wallpaper>>("Wallpapers not found");
         var wallpapers = wallpaperEntites
         .Select(w => w.ToDomain()).ToList();
