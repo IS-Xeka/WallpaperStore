@@ -10,11 +10,9 @@ namespace WallpaperStore.API.Controllers;
 public class WallpapersController : Controller
 {
     private readonly IWallpapersService _wallpapersService;
-    private readonly IUserService _userService;
-    public WallpapersController(IWallpapersService wallpapersService, IUserService userService)
+    public WallpapersController(IWallpapersService wallpapersService)
     {
         _wallpapersService = wallpapersService;
-        _userService = userService;
     }
 
     [HttpPost]

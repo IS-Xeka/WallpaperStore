@@ -4,6 +4,7 @@ using System.Xml.Linq;
 using WallpaperStore.API.Contracts;
 using WallpaperStore.Application.Services;
 using WallpaperStore.Core.Models;
+using WallpaperStore.DataAccess.Entities;
 
 namespace WallpaperStore.API.Controllers
 {
@@ -15,6 +16,27 @@ namespace WallpaperStore.API.Controllers
         public UsersController(IUserService userService)
         {
             _userService = userService;
+        }
+
+
+        [HttpGet]
+        [Route("GetById")]
+        public async Task<ActionResult<List<WallpaperResponse>>> GetById([FromHeader] Guid UserId)
+        {
+            var usersResult = await _userService.GetUserById(UserId);
+            if (usersResult.IsFailure)
+                throw new InvalidOperationException(usersResult.Error);
+            var userEntity = usersResult.Value;
+            var usersResponse = new UserResponse
+            (
+                userEntity.Id,
+                userEntity.Name,
+                userEntity.Email,
+                userEntity.RegisterDate,
+                userEntity.LastTimeOnline,
+                userEntity.IsPublicProfile
+            );
+            return Ok(usersResponse);
         }
 
         [HttpGet]
@@ -56,14 +78,16 @@ namespace WallpaperStore.API.Controllers
                                 w.Title,
                                 w.Description,
                                 w.Url,
-                                w.Price
+                                w.Price,
+                                w.OwnerId
                     )).ToList(),
                 u.SavedWallpapers.Select(w => new WallpaperResponse(
                                 w.Wallpaper.Id,
                                 w.Wallpaper.Title,
                                 w.Wallpaper.Description,
                                 w.Wallpaper.Url,
-                                w.Wallpaper.Price
+                                w.Wallpaper.Price,
+                                w.Wallpaper.OwnerId
                     )).ToList()
             ));
             return Ok(usersWithWallpapersResponse);
@@ -96,7 +120,21 @@ namespace WallpaperStore.API.Controllers
             return Ok(saveWallpaperResult.Value);
         }
 
-
-
+        [HttpPost]
+        [Route("AddWallpaper")]
+        public async Task<ActionResult<Guid>> AddWallpaper([FromBody] AddWallpaperRequest request)
+        {
+            var wallpaper = Wallpaper.Create(
+                Guid.NewGuid(),
+                request.Title,
+                request.Description,
+                request.Url,
+                request.Price,
+                request.UserId);
+            var addWallpaperResult = await _userService.AddWallpaper(
+                request.UserId,
+                wallpaper);
+            return Ok(addWallpaperResult.Value);
+        }
     }
 }
