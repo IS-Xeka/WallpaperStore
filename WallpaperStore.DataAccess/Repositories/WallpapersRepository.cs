@@ -36,7 +36,7 @@ public class WallpapersRepository : IWallpapersRepository
         if (!wallpaperEntites.Any())
             return Result.Failure<List<Wallpaper>>("Wallpapers not found");
         var wallpapers = wallpaperEntites
-        .Select(w => w.ToDomainWithOwner()).ToList();
+        .Select(w => w.ToDomain()).ToList();
         return Result.Success(wallpapers);
     }
 
@@ -73,7 +73,7 @@ public class WallpapersRepository : IWallpapersRepository
         if (wallpaperEntity == null)
             return Result.Failure<Wallpaper>("Wallpaper not found");
 
-        return Result.Success(wallpaperEntity.ToDomainWithOwner());
+        return Result.Success(wallpaperEntity.ToDomain());
     }
 
     public async Task<Result<Guid>> Update(Guid id, string title, string description)

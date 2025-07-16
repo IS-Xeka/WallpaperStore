@@ -46,7 +46,8 @@ public class WallpapersController : Controller
             w.Title,
             w.Description,
             w.Url,
-            w.Price
+            w.Price,
+            w.OwnerId
         ));
         return Ok(wallpapersResponse);
     }
@@ -55,14 +56,13 @@ public class WallpapersController : Controller
     [Route("CreateWallpaper")]
     public async Task<ActionResult<Guid>> CreateWallpaper([FromBody] WallpaperRequest request)
     {
-        var userResult = await _userService.GetUserById(request.OwenerId);
         var wallpaper = Wallpaper.Create(
             Guid.NewGuid(),
             request.Title,
             request.Description,
             request.Url,
             request.Price,
-            userResult.Value
+            request.OwnerId
             );
 
         var wallpaperId = await _wallpapersService.CreateWallpaper(wallpaper);

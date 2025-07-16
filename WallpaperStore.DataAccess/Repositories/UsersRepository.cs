@@ -90,7 +90,7 @@ namespace WallpaperStore.DataAccess.Repositories
                     .AsNoTracking()
                     .Include(u => u.AddedWallpapers)
                     .Include(u => u.SavedWallpapers)
-                        .ThenInclude(u => u.WallpaperEntity)
+                        .ThenInclude(us => us.WallpaperEntity)
                     .ToListAsync();
 
             if (!userEntites.Any())

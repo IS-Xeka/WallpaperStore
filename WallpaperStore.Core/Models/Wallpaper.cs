@@ -6,23 +6,22 @@ public class Wallpaper
     private const uint MAX_DESCRIPTION_LENGTH = 300;
     public Guid Id { get; private set; }
     public Guid OwnerId { get; private set; }
-    public User Owner { get; private set; }
+    public User? Owner { get; private set; }
     public string Title { get; private set; } = string.Empty;
     public string Description { get; private set; } = string.Empty;
     public string Url { get; private set; } = string.Empty;
     public decimal Price { get; private set; }
-    private Wallpaper(Guid id, string title, string description, string url, decimal price, User owner)
+    private Wallpaper(Guid id, string title, string description, string url, decimal price, Guid ownerId)
     {
         Id = id; 
         Title = title; 
         Description = description; 
         Url = url; 
         Price = price;
-        Owner = owner;
-        OwnerId = owner.Id;
+        OwnerId = ownerId;
     }
 
-    public static Wallpaper Create(Guid id, string title, string description, string url, decimal price, User owner)
+    public static Wallpaper Create(Guid id, string title, string description, string url, decimal price, Guid ownerId)
     {
         if(string.IsNullOrEmpty(title) || title.Length > MAX_TITLE_LENGTH)
         {
@@ -41,7 +40,7 @@ public class Wallpaper
             throw new ArgumentException($"Price can not be below than 0");
         }
 
-        var wallpaper = new Wallpaper(id, title, description, url, price, owner);
+        var wallpaper = new Wallpaper(id, title, description, url, price, ownerId);
 
         return wallpaper;
     }
