@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WallpaperStore.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11bd0e390619ad321389f948bb9a3d3b3fd1ecb9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a76eaf4bb857c7431b020c23b582f412f35e2f0")]
 [assembly: System.Reflection.AssemblyProductAttribute("WallpaperStore.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WallpaperStore.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

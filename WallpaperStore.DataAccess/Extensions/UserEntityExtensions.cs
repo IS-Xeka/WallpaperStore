@@ -14,7 +14,7 @@ public static class UserEntityExtensions
             entity.Email,
             entity.PasswordHash,
             entity.RegisterDate,
-            entity.IsPublicProfile);
+            entity.IsPublicProfile).Value;
     }
 
     public static User ToDomainWithWallpapers(this UserEntity entity)
@@ -25,7 +25,7 @@ public static class UserEntityExtensions
             entity.Email,
             entity.PasswordHash,
             entity.RegisterDate,
-            entity.IsPublicProfile);
+            entity.IsPublicProfile).Value;
         
         foreach(var wallpaperEntity in entity.AddedWallpapers)
         {

@@ -26,7 +26,7 @@ public class UsersConfiguration : IEntityTypeConfiguration<UserEntity>
         builder.Property(u => u.Email)
             .HasConversion(
                 email => email.Value,
-                dbValue => Email.Create(dbValue)
+                dbValue => Email.Create(dbValue).Value
             )
             .HasMaxLength(100)
             .HasColumnName("Email");

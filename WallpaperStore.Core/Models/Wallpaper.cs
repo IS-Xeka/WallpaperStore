@@ -1,4 +1,6 @@
-﻿namespace WallpaperStore.Core.Models;
+﻿using CSharpFunctionalExtensions;
+
+namespace WallpaperStore.Core.Models;
 
 public class Wallpaper
 {
@@ -23,46 +25,51 @@ public class Wallpaper
         OwnerId = ownerId;
     }
 
-    public static Wallpaper Create(Guid id, string title, string description, string url, decimal price, Guid ownerId)
+    public static Result<Wallpaper> Create(Guid id, string title, string description, string url, decimal price, Guid ownerId)
     {
+        var errors = new List<string>();
+
         if(string.IsNullOrEmpty(title) || title.Length > MAX_TITLE_LENGTH)
         {
-            throw new ArgumentException($"Title can not be empty and must be less than {MAX_TITLE_LENGTH} characters");
+            errors.Add($"Title can not be empty and must be less than {MAX_TITLE_LENGTH} characters");
         }
         if (string.IsNullOrEmpty(description) || description.Length > MAX_DESCRIPTION_LENGTH)
         {
-            throw new ArgumentException($"Description can not be empty and must be less than {MAX_TITLE_LENGTH} characters");
+            errors.Add($"Description can not be empty and must be less than {MAX_TITLE_LENGTH} characters");
         }
         if (string.IsNullOrEmpty(url))
         {
-            throw new ArgumentException($"Url can not be empty");
+            errors.Add($"Url can not be empty");
         }
         if (price < 0)
         {
-            throw new ArgumentException($"Price can not be below than 0");
+            errors.Add($"Price can not be below than 0");
         }
+        if (errors.Any())
+            return Result.Failure<Wallpaper>(string.Join("; ", errors));
 
-        var wallpaper = new Wallpaper(id, title, description, url, price, ownerId);
-
-        return wallpaper;
+        return Result.Success(new Wallpaper(id, title, description, url, price, ownerId));
     }
 
-    public void AddCategory(Category category)
+    public Result AddCategory(Category category)
     {
         if(category == null)
-            throw new ArgumentNullException(nameof(category), "Category is null");
-        if (_categories.Any(c => c.Value == category.Value))
-            throw new InvalidOperationException($"Category has been added. {category}");
+            return Result.Failure($"Category is null. {nameof(category)}");
+        if (_categories.Any(c => c.Equals(category)))
+            return Result.Failure($"Category has been added. {category}");
+
         _categories.Add(category);
+        return Result.Success();
     }
 
-    public void RemoveCategory(Category category)
+    public Result RemoveCategory(Category category)
     {
-        if (category == null)
-            throw new ArgumentNullException(nameof(category), "Category is null");
+        var removeCtaegory = _categories.FirstOrDefault(c => c.Equals(category));
 
-        var removeCtaegory = _categories.FirstOrDefault(c => c.Id == category.Id)
-            ?? throw new ArgumentException(nameof(category), $"Category with ID {category.Id} not found in saved collection");
+        if (category == null)
+            return Result.Failure($"Category is null. {nameof(category)}");
+
         _categories.Remove(removeCtaegory);
+        return Result.Success();
     }
 }

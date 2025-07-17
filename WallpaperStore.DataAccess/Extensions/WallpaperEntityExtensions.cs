@@ -13,6 +13,6 @@ public static class WallpaperEntityExtensions
             entity.Description,
             entity.Url,
             entity.Price,
-            entity.OwnerId);
+            entity.OwnerId).Value;
     }
 }

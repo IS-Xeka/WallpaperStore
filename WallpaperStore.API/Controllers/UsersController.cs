@@ -38,7 +38,6 @@ namespace WallpaperStore.API.Controllers
             );
             return Ok(usersResponse);
         }
-
         [HttpGet]
         [Route("GetUsers")]
         public async Task<ActionResult<List<WallpaperResponse>>> GetUsers()
@@ -97,15 +96,20 @@ namespace WallpaperStore.API.Controllers
         [Route("CreateUser")]
         public async Task<ActionResult<Guid>> CreateUser([FromBody] UserRequest request)
         {
-            var email = Email.Create(request.email);
-            var user = Core.Models.User.Create(
+            var emailResult = Email.Create(request.email);
+            if (emailResult.IsFailure)
+                return BadRequest(emailResult.Error);
+            var userResult = Core.Models.User.Create(
                     Guid.NewGuid(),
                     request.name,
-                    email,
+                    emailResult.Value,
                     request.passwordHash,
                     DateTime.UtcNow
                     );
-            var createUserResult = await _userService.CreateUser(user);
+            if(userResult.IsFailure)
+                return BadRequest(userResult.Error);
+
+            var createUserResult = await _userService.CreateUser(userResult.Value);
             return Ok(createUserResult.Value);
         }
 
@@ -124,16 +128,19 @@ namespace WallpaperStore.API.Controllers
         [Route("AddWallpaper")]
         public async Task<ActionResult<Guid>> AddWallpaper([FromBody] AddWallpaperRequest request)
         {
-            var wallpaper = Wallpaper.Create(
+            var wallpaperResult = Wallpaper.Create(
                 Guid.NewGuid(),
                 request.Title,
                 request.Description,
                 request.Url,
                 request.Price,
                 request.UserId);
+            if(wallpaperResult.IsFailure)
+                return BadRequest(wallpaperResult.Error);
+
             var addWallpaperResult = await _userService.AddWallpaper(
                 request.UserId,
-                wallpaper);
+                wallpaperResult.Value);
             return Ok(addWallpaperResult.Value);
         }
     }

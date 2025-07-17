@@ -17,21 +17,26 @@ public class Email: ValueObject
         Value = value;
     }
 
-    public static Email Create(string value)
+    public static Result<Email> Create(string value)
     {
+        var errors = new List<string>();
+
         if (string.IsNullOrEmpty(value))
         {
-            throw new ArgumentNullException($"Email can not be empty {nameof(value)}");
+            errors.Add($"Email can not be empty {nameof(value)}");
         }
         if(value.Length > MAX_LENGTH)
         {
-            throw new ArgumentException($"Email must be less than {MAX_LENGTH} characters");
+            errors.Add($"Email must be less than {MAX_LENGTH} characters");
         }
         if (!Regex.IsMatch(value, EmailRegex) || !new EmailAddressAttribute().IsValid(value))
         {
-            throw new ArgumentException("Invalid email format");
+            errors.Add("Invalid email format");
         }
-        return new Email(value);
+        if (errors.Any())
+            return Result.Failure<Email>(string.Join("; ", errors));
+
+        return Result.Success(new Email(value));
     }
 
     protected override IEnumerable<object> GetEqualityComponents()

@@ -11,6 +11,6 @@ public static class UserSavedWallpapersEntityExtensions
         return UserSavedWallpaper.Create(
             entity.UserEntity.ToDomain(),
             entity.WallpaperEntity.ToDomain(),
-            entity.IsFavorite);
+            entity.IsFavorite).Value;
     }
 }

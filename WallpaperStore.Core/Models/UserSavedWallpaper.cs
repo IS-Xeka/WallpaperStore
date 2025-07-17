@@ -1,4 +1,6 @@
-﻿namespace WallpaperStore.Core.Models;
+﻿using CSharpFunctionalExtensions;
+
+namespace WallpaperStore.Core.Models;
 
 public class UserSavedWallpaper
 {
@@ -6,7 +8,6 @@ public class UserSavedWallpaper
     public Guid WallpaperId { get; }
     public DateTime? SavedDate { get; } = DateTime.UtcNow;
     public bool IsFavorite { get; private set; } = false;
-
     public User User { get; } = null!;
     public Wallpaper Wallpaper { get; } = null!;
 
@@ -22,17 +23,17 @@ public class UserSavedWallpaper
         WallpaperId = wallpaper.Id;
     }
 
-    public static UserSavedWallpaper Create(
+    public static Result<UserSavedWallpaper> Create(
         User user,
         Wallpaper wallpaper,
         bool isFavorite)
     {
         if (user == null)
-            throw new ArgumentNullException($"User can not be null {nameof(user)}");
+            return Result.Failure<UserSavedWallpaper>($"User can not be null {nameof(user)}");
         if (wallpaper == null)
-            throw new ArgumentNullException($"Wallpaper can not be null {nameof(wallpaper)}");
+            return Result.Failure<UserSavedWallpaper>($"Wallpaper can not be null {nameof(wallpaper)}");
 
-        return new UserSavedWallpaper(user, wallpaper, isFavorite);
+        return Result.Success(new UserSavedWallpaper(user, wallpaper, isFavorite));
     }
 
     public void ToggleFavorite()
