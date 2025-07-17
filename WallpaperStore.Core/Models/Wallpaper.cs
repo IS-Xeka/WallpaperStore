@@ -11,6 +11,8 @@ public class Wallpaper
     public string Description { get; private set; } = string.Empty;
     public string Url { get; private set; } = string.Empty;
     public decimal Price { get; private set; }
+    private readonly List<Category> _categories = [];
+    public IReadOnlyCollection<Category> Categories => _categories.AsReadOnly();
     private Wallpaper(Guid id, string title, string description, string url, decimal price, Guid ownerId)
     {
         Id = id; 
@@ -43,5 +45,24 @@ public class Wallpaper
         var wallpaper = new Wallpaper(id, title, description, url, price, ownerId);
 
         return wallpaper;
+    }
+
+    public void AddCategory(Category category)
+    {
+        if(category == null)
+            throw new ArgumentNullException(nameof(category), "Category is null");
+        if (_categories.Any(c => c.Value == category.Value))
+            throw new InvalidOperationException($"Category has been added. {category}");
+        _categories.Add(category);
+    }
+
+    public void RemoveCategory(Category category)
+    {
+        if (category == null)
+            throw new ArgumentNullException(nameof(category), "Category is null");
+
+        var removeCtaegory = _categories.FirstOrDefault(c => c.Id == category.Id)
+            ?? throw new ArgumentException(nameof(category), $"Category with ID {category.Id} not found in saved collection");
+        _categories.Remove(removeCtaegory);
     }
 }
