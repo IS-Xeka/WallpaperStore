@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WallpaperStore.Application.Mapping;
 using WallpaperStore.Application.Services;
 using WallpaperStore.DataAccess;
 using WallpaperStore.DataAccess.Repositories;
@@ -15,6 +16,7 @@ builder.Services.AddScoped<IWallpapersRepository, WallpapersRepository>();
 builder.Services.AddScoped<IWallpapersService, WallpapersService>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserMapper, UserMapper>();
 
 builder.Services.AddDbContext<WallpaperStoreDbContext>(
     options =>

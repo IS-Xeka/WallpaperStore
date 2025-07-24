@@ -8,7 +8,6 @@ public class UserSavedWallpapersConfiguration : IEntityTypeConfiguration<UserSav
 {
     public void Configure(EntityTypeBuilder<UserSavedWallpapersEntity> builder)
     {
-        builder.ToTable("UserSavedWallpapers");
         builder.HasKey(sw => new { sw.UserId, sw.WallpaperId });
 
         builder.Property(sw => sw.UserId).IsRequired();

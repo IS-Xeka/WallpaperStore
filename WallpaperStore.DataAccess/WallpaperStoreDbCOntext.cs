@@ -13,6 +13,7 @@ public class WallpaperStoreDbContext : DbContext
     
     public DbSet<WallpaperEntity> Wallpapers {get; set;}
     public DbSet<UserEntity> Users { get; set; }
+    public DbSet<UserSavedWallpapersEntity> UserSavedWallpapers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -38,7 +38,7 @@ namespace WallpaperStore.DataAccess.Repositories
 
             return Result.Success(userEntity.ToDomain());
         }
-        public async Task<Result<User>> GetByIdWithWallpapers(Guid id)
+/*        public async Task<Result<User>> GetByIdWithWallpapers(Guid id)
         {
             var userEntity = await _context.Users
                 .AsNoTracking()
@@ -51,7 +51,7 @@ namespace WallpaperStore.DataAccess.Repositories
                 return Result.Failure<User>("User not found");
 
             return userEntity.ToDomainWithWallpapers();
-        }
+        }*/
 
         public async Task<Result<Guid>> Create(User user)
         {
@@ -84,7 +84,7 @@ namespace WallpaperStore.DataAccess.Repositories
             return Result.Success(users);
         }
 
-        public async Task<Result<List<User>>> GetWithWallpapers()
+/*        public async Task<Result<List<User>>> GetWithWallpapers()
         {
             var userEntites = await _context.Users
                     .AsNoTracking()
@@ -97,9 +97,9 @@ namespace WallpaperStore.DataAccess.Repositories
                 return Result.Failure<List<User>>("Users not found");
             var users = userEntites.Select(u => u.ToDomainWithWallpapers()).ToList();
             return Result.Success(users);
-        }
+        }*/
 
-        public async Task<Result<Guid>> SaveWallpaper(Guid userId, Guid wallpaperId, bool isFavorite)
+/*        public async Task<Result<Guid>> SaveWallpaper(Guid userId, Guid wallpaperId, bool isFavorite)
         {
             var userEntity = await _context.Users
                 .Include(u => u.SavedWallpapers)
@@ -122,9 +122,9 @@ namespace WallpaperStore.DataAccess.Repositories
             await _context.SaveChangesAsync();
             return Result.Success(wallpaperId);
 
-        }
+        }*/
 
-        public async Task<Result<Guid>> AddWallpaper(Guid userId, Wallpaper wallpaper)
+/*        public async Task<Result<Guid>> AddWallpaper(Guid userId, Wallpaper wallpaper)
         {
             if (wallpaper == null)
                 return Result.Failure<Guid>("Wallpaper can't be null");
@@ -154,6 +154,6 @@ namespace WallpaperStore.DataAccess.Repositories
             userEntity.AddedWallpapers.Add(wallpaperEntity);
             await _context.SaveChangesAsync();
             return Result.Success(wallpaper.Id);
-        }
+        }*/
     }
 }
