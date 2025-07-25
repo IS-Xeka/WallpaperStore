@@ -4,6 +4,7 @@ using WallpaperStore.Application.Extensions;
 using WallpaperStore.Core.Models;
 using WallpaperStore.DataAccess.Entities;
 using WallpaperStore.DataAccess.Extensions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace WallpaperStore.DataAccess.Repositories;
 
@@ -64,22 +65,59 @@ public class UserWallpapersRepository
         }
     }
 
-    public async Task<Result<List<UserSavedWallpaper>>> GetByUserIdAsync(Guid userId, CancellationToken ct = default)
+    public async Task<Result<List<UserSavedWallpaper>>> GetSavedWallpapersAsync(
+        Guid? userId = null, 
+        Guid? wallpaperId = null, 
+        bool includeWallpapers = false,
+        CancellationToken ct = default)
     {
         try
         {
-            var savedWallpapers = await _context.UserSavedWallpapers
-                    .AsNoTracking()
-                    .Where(uw => uw.UserId == userId)
-                    .Include(uw => uw.WallpaperEntity)
-                    .Select(uw => uw.ToDomain())
-                    .ToListAsync(ct);
+            var query = _context.UserSavedWallpapers.AsNoTracking();
 
+            if (userId.HasValue)
+                query = query.Where(uw => uw.UserId == userId);
+            if (wallpaperId.HasValue)
+                query = query.Where(uw => uw.WallpaperId == wallpaperId);
+            if (includeWallpapers)
+                query = query.Include(uw => uw.WallpaperEntity);
+
+            var savedWallpapers = await query
+                .Select(uw => includeWallpapers 
+                    ? uw.ToDomainWithWallpaper()
+                    : uw.ToDomain())
+                .ToListAsync(ct);
             return Result.Success(savedWallpapers);
         }
         catch (Exception ex)
         {
             return Result.Failure<List<UserSavedWallpaper>>("Server error. Failed to get UserSavedWallpaper");
+        }
+    }   
+    
+    public async Task<Result<UserSavedWallpaper>> GetSavedWallpaperAsync(
+        Guid userId,
+        Guid wallpaperId,
+        bool includeWallpaper = false,
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var query = _context.UserSavedWallpapers.AsNoTracking();
+            var savedWallpaper = await query.FirstOrDefaultAsync(uw => uw.WallpaperId == wallpaperId && uw.UserId == userId, ct);
+            if (includeWallpaper)
+                query = query.Include(uw => uw.WallpaperEntity);
+
+            if (savedWallpaper == null)
+                return Result.Failure<UserSavedWallpaper>("Saved wallpaper not found");
+
+            if (includeWallpaper)
+                return Result.Success(savedWallpaper.ToDomainWithWallpaper());
+            return Result.Success(savedWallpaper.ToDomain());
+        }
+        catch (Exception ex)
+        {
+            return Result.Failure<UserSavedWallpaper>("Server error. Failed to get UserSavedWallpaper");
         }
     }
 }

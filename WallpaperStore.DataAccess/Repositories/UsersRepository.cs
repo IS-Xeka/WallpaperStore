@@ -14,20 +14,18 @@ namespace WallpaperStore.DataAccess.Repositories
         {
             _context = context;
         }
-
-        public async Task<Result<Guid>> Update(Guid id, string name)
+        public async Task<Result<List<User>>> GetAll()
         {
-            if (!await _context.Users.AnyAsync(u => u.Id == id))
-                return Result.Failure<Guid>("User not found");
-            await _context.Users
-                .Where(u => u.Id == id)
-                .ExecuteUpdateAsync(user => user
-                    .SetProperty(u => u.Name, name));
-            await _context.SaveChangesAsync();
-            return Result.Success(id);
-        }
+            var userEntites = await _context.Users
+                .AsNoTracking()
+                .ToListAsync();
 
-        public async Task<Result<User>> GetById(Guid id)
+            if (userEntites == null)
+                return Result.Failure<List<User>>("Users not found");
+            var users = userEntites.Select(u => u.ToDomain()).ToList();
+            return Result.Success(users);
+        }
+        public async Task<Result<User>> Get(Guid id)
         {
             var userEntity = await _context.Users
                 .AsNoTracking()
@@ -38,21 +36,6 @@ namespace WallpaperStore.DataAccess.Repositories
 
             return Result.Success(userEntity.ToDomain());
         }
-/*        public async Task<Result<User>> GetByIdWithWallpapers(Guid id)
-        {
-            var userEntity = await _context.Users
-                .AsNoTracking()
-                .Include(u => u.AddedWallpapers)
-                .Include(u => u.SavedWallpapers)
-                    .ThenInclude(sw => sw.WallpaperEntity)
-                .FirstOrDefaultAsync(u => u.Id == id);
-
-            if (userEntity == null)
-                return Result.Failure<User>("User not found");
-
-            return userEntity.ToDomainWithWallpapers();
-        }*/
-
         public async Task<Result<Guid>> Create(User user)
         {
             if (user == null)
@@ -71,89 +54,115 @@ namespace WallpaperStore.DataAccess.Repositories
             await _context.SaveChangesAsync();
             return Result.Success(userEntity.Id);
         }
-
-        public async Task<Result<List<User>>> Get()
+        public async Task<Result<Guid>> Update(Guid id, string name)
         {
-            var userEntites = await _context.Users
-                .AsNoTracking()
-                .ToListAsync();
-
-            if (userEntites == null)
-                return Result.Failure<List<User>>("Users not found");
-            var users = userEntites.Select(u => u.ToDomain()).ToList();
-            return Result.Success(users);
+            if (!await _context.Users.AnyAsync(u => u.Id == id))
+                return Result.Failure<Guid>("User not found");
+            await _context.Users
+                .Where(u => u.Id == id)
+                .ExecuteUpdateAsync(user => user
+                    .SetProperty(u => u.Name, name));
+            await _context.SaveChangesAsync();
+            return Result.Success(id);
         }
 
-/*        public async Task<Result<List<User>>> GetWithWallpapers()
+        public async Task<Result> DeleteAsync(Guid id, CancellationToken ct = default)
         {
-            var userEntites = await _context.Users
-                    .AsNoTracking()
-                    .Include(u => u.AddedWallpapers)
-                    .Include(u => u.SavedWallpapers)
-                        .ThenInclude(us => us.WallpaperEntity)
-                    .ToListAsync();
+            if (!await _context.Users.AnyAsync(u => u.Id == id, ct))
+                return Result.Failure("User not found");
 
-            if (!userEntites.Any())
-                return Result.Failure<List<User>>("Users not found");
-            var users = userEntites.Select(u => u.ToDomainWithWallpapers()).ToList();
-            return Result.Success(users);
-        }*/
+            var userEntity = new UserEntity { Id = id };
+            _context.Attach(userEntity);
+            _context.Users.Remove(userEntity);
+            await _context.SaveChangesAsync(ct);
+            return Result.Success();
+        }
 
-/*        public async Task<Result<Guid>> SaveWallpaper(Guid userId, Guid wallpaperId, bool isFavorite)
-        {
-            var userEntity = await _context.Users
-                .Include(u => u.SavedWallpapers)
-                    .ThenInclude(w => w.WallpaperEntity)
-                .FirstOrDefaultAsync(u => u.Id == userId);
+        /*        public async Task<Result<User>> GetByIdWithWallpapers(Guid id)
+                {
+                    var userEntity = await _context.Users
+                        .AsNoTracking()
+                        .Include(u => u.AddedWallpapers)
+                        .Include(u => u.SavedWallpapers)
+                            .ThenInclude(sw => sw.WallpaperEntity)
+                        .FirstOrDefaultAsync(u => u.Id == id);
 
-            if (userEntity == null)
-                return Result.Failure<Guid>("User not found");
-            if (userEntity.SavedWallpapers.Any(w => w.WallpaperId == wallpaperId))
-                return Result.Failure<Guid>("Wallpaper was saved");
+                    if (userEntity == null)
+                        return Result.Failure<User>("User not found");
 
-            userEntity.SavedWallpapers.Add(new UserSavedWallpapersEntity
-            {
-                UserId = userId,
-                WallpaperId = wallpaperId,
-                IsFavorite = isFavorite,
-                SavedDate = DateTime.UtcNow
-            });
+                    return userEntity.ToDomainWithWallpapers();
+                }*/
 
-            await _context.SaveChangesAsync();
-            return Result.Success(wallpaperId);
+        /*        public async Task<Result<List<User>>> GetWithWallpapers()
+                {
+                    var userEntites = await _context.Users
+                            .AsNoTracking()
+                            .Include(u => u.AddedWallpapers)
+                            .Include(u => u.SavedWallpapers)
+                                .ThenInclude(us => us.WallpaperEntity)
+                            .ToListAsync();
 
-        }*/
+                    if (!userEntites.Any())
+                        return Result.Failure<List<User>>("Users not found");
+                    var users = userEntites.Select(u => u.ToDomainWithWallpapers()).ToList();
+                    return Result.Success(users);
+                }*/
 
-/*        public async Task<Result<Guid>> AddWallpaper(Guid userId, Wallpaper wallpaper)
-        {
-            if (wallpaper == null)
-                return Result.Failure<Guid>("Wallpaper can't be null");
+        /*        public async Task<Result<Guid>> SaveWallpaper(Guid userId, Guid wallpaperId, bool isFavorite)
+                {
+                    var userEntity = await _context.Users
+                        .Include(u => u.SavedWallpapers)
+                            .ThenInclude(w => w.WallpaperEntity)
+                        .FirstOrDefaultAsync(u => u.Id == userId);
 
-            var wallpaperEntity = new WallpaperEntity
-            {
-                Id = wallpaper.Id,
-                Title = wallpaper.Title,
-                Description = wallpaper.Description,
-                Url = wallpaper.Url,
-                Price = wallpaper.Price,
-                OwnerId = userId
-            };
+                    if (userEntity == null)
+                        return Result.Failure<Guid>("User not found");
+                    if (userEntity.SavedWallpapers.Any(w => w.WallpaperId == wallpaperId))
+                        return Result.Failure<Guid>("Wallpaper was saved");
 
-            var userEntity = await _context.Users
-                .Include(u => u.AddedWallpapers)
-                .FirstOrDefaultAsync(u => u.Id == userId);
+                    userEntity.SavedWallpapers.Add(new UserSavedWallpapersEntity
+                    {
+                        UserId = userId,
+                        WallpaperId = wallpaperId,
+                        IsFavorite = isFavorite,
+                        SavedDate = DateTime.UtcNow
+                    });
 
-            if (userEntity == null)
-                return Result.Failure<Guid>("User not found");
-            if (userEntity.AddedWallpapers.Any(w => w.Id == wallpaper.Id))
-                return Result.Failure<Guid>("Wallpaper was added");
-            if (userEntity.AddedWallpapers.Any(w => w.Url == wallpaper.Url))
-                return Result.Failure<Guid>("Wallpaper already exist");
+                    await _context.SaveChangesAsync();
+                    return Result.Success(wallpaperId);
 
-            await _context.Wallpapers.AddAsync(wallpaperEntity);
-            userEntity.AddedWallpapers.Add(wallpaperEntity);
-            await _context.SaveChangesAsync();
-            return Result.Success(wallpaper.Id);
-        }*/
+                }*/
+
+        /*        public async Task<Result<Guid>> AddWallpaper(Guid userId, Wallpaper wallpaper)
+                {
+                    if (wallpaper == null)
+                        return Result.Failure<Guid>("Wallpaper can't be null");
+
+                    var wallpaperEntity = new WallpaperEntity
+                    {
+                        Id = wallpaper.Id,
+                        Title = wallpaper.Title,
+                        Description = wallpaper.Description,
+                        Url = wallpaper.Url,
+                        Price = wallpaper.Price,
+                        OwnerId = userId
+                    };
+
+                    var userEntity = await _context.Users
+                        .Include(u => u.AddedWallpapers)
+                        .FirstOrDefaultAsync(u => u.Id == userId);
+
+                    if (userEntity == null)
+                        return Result.Failure<Guid>("User not found");
+                    if (userEntity.AddedWallpapers.Any(w => w.Id == wallpaper.Id))
+                        return Result.Failure<Guid>("Wallpaper was added");
+                    if (userEntity.AddedWallpapers.Any(w => w.Url == wallpaper.Url))
+                        return Result.Failure<Guid>("Wallpaper already exist");
+
+                    await _context.Wallpapers.AddAsync(wallpaperEntity);
+                    userEntity.AddedWallpapers.Add(wallpaperEntity);
+                    await _context.SaveChangesAsync();
+                    return Result.Success(wallpaper.Id);
+                }*/
     }
 }
