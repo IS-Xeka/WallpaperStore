@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
+using WallpaperStore.API;
 using WallpaperStore.Application.Mapping;
 using WallpaperStore.Application.Services;
 using WallpaperStore.DataAccess;
@@ -8,21 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddControllers();
-
-builder.Services.AddScoped<IWallpapersRepository, WallpapersRepository>();
-builder.Services.AddScoped<IWallpapersService, WallpapersService>();
-builder.Services.AddScoped<IUsersRepository, UsersRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserMapper, UserMapper>();
-
-builder.Services.AddDbContext<WallpaperStoreDbContext>(
-    options =>
-    {
-        options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(WallpaperStoreDbContext)));
-    });
+builder.Services.AddProgramDependencies(builder.Configuration);
 
 var app = builder.Build();
 

@@ -13,7 +13,22 @@ public class WallpapersRepository : IWallpapersRepository
         _context = context;
     }
 
-    public async Task<Result<List<Wallpaper>>> GetUserWallpapers(Guid userId)
+    public async Task<Result<List<Wallpaper>>> GetAsync()
+    {
+        try
+        {
+            var wallpapers = await _context.Wallpapers
+                    .AsNoTracking()
+                    .ToListAsync();
+            return Result.Success(wallpapers.Select(w => w.ToDomain()).ToList());
+        }
+        catch (Exception ex)
+        {
+            return Result.Failure<List<Wallpaper>>($"Server error. Can not get wallpapers. {ex.Message}");
+        }
+    }
+
+    public async Task<Result<List<Wallpaper>>> GetUserWallpapersAsync(Guid userId)
     {
         try
         {
@@ -24,15 +39,18 @@ public class WallpapersRepository : IWallpapersRepository
                     .ToListAsync();
             return Result.Success(wallpapers);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            return Result.Failure<List<Wallpaper>>(ex.Message);
+            return Result.Failure<List<Wallpaper>>($"Server error. Can not get wallpapers. {ex.Message}");
         }
     }
 
-    public async Task<Result<Guid>> AddWallpaper(Guid userId, Wallpaper wallpaper)
+    public async Task<Result<Guid>> AddWallpaperAsync(
+        Guid userId,
+        Wallpaper wallpaper,
+        CancellationToken ct = default)
     {
-        if(userId == Guid.Empty)
+        if (userId == Guid.Empty)
             return Result.Failure<Guid>("UserId can not be empty");
         if (wallpaper == null)
             return Result.Failure<Guid>("Wallpaper can not be empty");
@@ -52,8 +70,8 @@ public class WallpapersRepository : IWallpapersRepository
                 Price = wallpaper.Price,
                 OwnerId = userId
             };
-            await _context.Wallpapers.AddAsync(wallpaperEntity);
-            await _context.SaveChangesAsync();
+            await _context.Wallpapers.AddAsync(wallpaperEntity, ct);
+            await _context.SaveChangesAsync(ct);
             return Result.Success(wallpaperEntity.Id);
         }
         catch (Exception ex)

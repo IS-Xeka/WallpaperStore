@@ -24,19 +24,20 @@ namespace WallpaperStore.API.Controllers
         [HttpGet("{userId}")]
         public async Task<ActionResult<List<WallpaperResponse>>> GetById(Guid userId)
         {
-            var usersResult = await _userService.GetUserById(userId);
+            var usersResult = await _userService.GetByIdAsync(userId);
             return usersResult.IsSuccess
                 ? Ok(_userMapper.MapToUserResponse(usersResult.Value))
                 : BadRequest(usersResult.Error);
-        }
-
-        [HttpGet("{userId}/wallpapers")]
-        public async Task<ActionResult<List<WallpaperResponse>>> GetByIdWithWallpapers(Guid userId)
+        }        
+        [HttpGet("/savedWallpapers/{userId}")]
+        public async Task<ActionResult<List<WallpaperResponse>>> GetSavedWallpapers(Guid? userId = null, Guid? wallpaperId = null, bool includeWallpapers = false)
         {
-            var usersResult = await _userService.GetUserByIdWithWallpapers(userId);
-            return usersResult.IsSuccess
-                ? Ok(_userMapper.MapToUserResponse(usersResult.Value, true))
-                : BadRequest(usersResult.Error);
+            var result = await _userService.GetAllSavedWallpapersAsync(userId, wallpaperId, includeWallpapers);
+            foreach(var r in result.Value)
+            {
+                await Console.Out.WriteLineAsync(r.Wallpaper.Title);
+            }
+            return Ok();
         }
         
         [HttpPost]
@@ -57,37 +58,18 @@ namespace WallpaperStore.API.Controllers
             if (userResult.IsFailure)
                 return BadRequest(userResult.Error);
 
-            var createUserResult = await _userService.CreateUser(userResult.Value);
+            var createUserResult = await _userService.CreateAsync(userResult.Value);
             return Ok(createUserResult.Value);
         }
 
         [HttpPost("{userId}/saved-wallpapers")]
         public async Task<ActionResult<Guid>> SaveWallpaper(Guid userId, [FromBody] SaveWallpaperRequest request)
         {
-            var saveWallpaperResult = await _userService.SaveWallpaper(
-                userId,
-                request.WallpaperId,
-                request.IsFavorite);
-            return Ok(saveWallpaperResult.Value);
-        }
-
-        [HttpPost("{userId}/added-wallpaper")]
-        public async Task<ActionResult<Guid>> AddWallpaper(Guid userId, [FromBody] AddWallpaperRequest request)
-        {
-            var wallpaperResult = Wallpaper.Create(
-                Guid.NewGuid(),
-                request.Title,
-                request.Description,
-                request.Url,
-                request.Price,
-                userId);
-            if (wallpaperResult.IsFailure)
-                return BadRequest(wallpaperResult.Error);
-
-            var addWallpaperResult = await _userService.AddWallpaper(
-                userId,
-                wallpaperResult.Value);
-            return Ok(addWallpaperResult.Value);
+            await _userService.SaveWallpaperAsync(
+                        userId,
+                        request.WallpaperId,
+                        request.IsFavorite);
+            return Ok();
         }
 
         [HttpGet]
@@ -95,14 +77,14 @@ namespace WallpaperStore.API.Controllers
         { 
             if (includeWallpapers)
             {
-                var usersResult = await _userService.GetAllWithWallpapers();
+                var usersResult = await _userService.GetAsync();
                 return usersResult.IsSuccess
                     ? Ok(usersResult.Value.Select(u => _userMapper.MapToUserResponse(u, includeWallpapers)))
                     : BadRequest(usersResult.Error);
             }
             else
             {
-                var usersResult = await _userService.GetAll();
+                var usersResult = await _userService.GetAsync();
                 return usersResult.IsSuccess 
                     ? Ok(usersResult.Value.Select(u => _userMapper.MapToUserResponse(u, includeWallpapers))) 
                     : BadRequest(usersResult.Error);

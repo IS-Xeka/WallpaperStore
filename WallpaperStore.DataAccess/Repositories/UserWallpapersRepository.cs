@@ -4,14 +4,13 @@ using WallpaperStore.Application.Extensions;
 using WallpaperStore.Core.Models;
 using WallpaperStore.DataAccess.Entities;
 using WallpaperStore.DataAccess.Extensions;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace WallpaperStore.DataAccess.Repositories;
 
-public class UserWallpapersRepository
+public class UserWallpapersRepository : IUserWallpapersRepository
 {
     private readonly WallpaperStoreDbContext _context;
-    public UserWallpapersRepository(WallpaperStoreDbContext context) 
+    public UserWallpapersRepository(WallpaperStoreDbContext context)
     {
         _context = context;
     }
@@ -26,7 +25,7 @@ public class UserWallpapersRepository
 
             if (exists)
                 return Result.Failure("Wallpaper was saved");
-            
+
             var userSavedWallpaperEntity = new UserSavedWallpapersEntity
             {
                 UserId = userId,
@@ -65,9 +64,9 @@ public class UserWallpapersRepository
         }
     }
 
-    public async Task<Result<List<UserSavedWallpaper>>> GetSavedWallpapersAsync(
-        Guid? userId = null, 
-        Guid? wallpaperId = null, 
+    public async Task<Result<List<UserSavedWallpaper>>> GetAllSavedWallpapersAsync(
+        Guid? userId = null,
+        Guid? wallpaperId = null,
         bool includeWallpapers = false,
         CancellationToken ct = default)
     {
@@ -83,7 +82,7 @@ public class UserWallpapersRepository
                 query = query.Include(uw => uw.WallpaperEntity);
 
             var savedWallpapers = await query
-                .Select(uw => includeWallpapers 
+                .Select(uw => includeWallpapers
                     ? uw.ToDomainWithWallpaper()
                     : uw.ToDomain())
                 .ToListAsync(ct);
@@ -93,8 +92,8 @@ public class UserWallpapersRepository
         {
             return Result.Failure<List<UserSavedWallpaper>>("Server error. Failed to get UserSavedWallpaper");
         }
-    }   
-    
+    }
+
     public async Task<Result<UserSavedWallpaper>> GetSavedWallpaperAsync(
         Guid userId,
         Guid wallpaperId,

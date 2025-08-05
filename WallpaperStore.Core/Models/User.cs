@@ -56,7 +56,7 @@ public class User
         if (_savedWallpapers.Any(w => w.WallpaperId == wallpaper.Id))
             return Result.Failure($"Wallpaper has been saved, {wallpaper.Id}");
 
-        var userSavedWallpaperResult = UserSavedWallpaper.Create(this, wallpaper, isFavorite);
+        var userSavedWallpaperResult = UserSavedWallpaper.Create(this, wallpaper, DateTime.UtcNow, isFavorite);
         if (userSavedWallpaperResult.IsFailure)
             return Result.Failure(userSavedWallpaperResult.Error);
 

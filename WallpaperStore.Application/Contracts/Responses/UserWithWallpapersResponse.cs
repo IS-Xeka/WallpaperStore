@@ -1,5 +1,4 @@
 ﻿using WallpaperStore.Core.Models;
-using WallpaperStore.DataAccess.Entities;
 
 namespace WallpaperStore.API.Contracts
 {

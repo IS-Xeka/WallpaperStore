@@ -5,13 +5,10 @@ namespace WallpaperStore.DataAccess.Repositories
 {
     public interface IUsersRepository
     {
-        Task<Result<Guid>> Create(User user);
-        Task<Result<User>> GetById(Guid id);
-        Task<Result<User>> GetByIdWithWallpapers(Guid id);
-        Task<Result<Guid>> Update(Guid id, string name);
-        Task<Result<List<User>>> Get();
-        Task<Result<List<User>>> GetWithWallpapers();
-        Task<Result<Guid>> SaveWallpaper(Guid userId, Guid wallaperId, bool isFavorite);
-        Task<Result<Guid>> AddWallpaper(Guid userId, Wallpaper wallpaper);
+        Task<Result<Guid>> CreateAsync(User user, CancellationToken ct = default);
+        Task<Result> DeleteAsync(Guid id, CancellationToken ct = default);
+        Task<Result<List<User>>> GetAsync();
+        Task<Result<User>> GetByIdAsync(Guid id);
+        Task<Result<Guid>> UpdateAsync(Guid id, string name, CancellationToken ct = default);
     }
 }
