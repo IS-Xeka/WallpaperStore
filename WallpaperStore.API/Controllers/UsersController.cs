@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System.Xml.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using WallpaperStore.API.Contracts;
 using WallpaperStore.Application.Mapping;
 using WallpaperStore.Application.Services;
 using WallpaperStore.Core.Models;
-using WallpaperStore.DataAccess.Entities;
 
 namespace WallpaperStore.API.Controllers
 {
@@ -22,24 +19,33 @@ namespace WallpaperStore.API.Controllers
         }
           
         [HttpGet("{userId}")]
-        public async Task<ActionResult<List<WallpaperResponse>>> GetById(Guid userId)
+        public async Task<ActionResult<List<WallpaperDto>>> GetById(Guid userId)
         {
             var usersResult = await _userService.GetByIdAsync(userId);
             return usersResult.IsSuccess
-                ? Ok(_userMapper.MapToUserResponse(usersResult.Value))
+                ? Ok(_userMapper.MapToUserDto(usersResult.Value))
                 : BadRequest(usersResult.Error);
-        }        
-        [HttpGet("/savedWallpapers/{userId}")]
-        public async Task<ActionResult<List<WallpaperResponse>>> GetSavedWallpapers(Guid? userId = null, Guid? wallpaperId = null, bool includeWallpapers = false)
-        {
-            var result = await _userService.GetAllSavedWallpapersAsync(userId, wallpaperId, includeWallpapers);
-            foreach(var r in result.Value)
-            {
-                await Console.Out.WriteLineAsync(r.Wallpaper.Title);
-            }
-            return Ok();
         }
-        
+
+        [HttpGet]
+        public async Task<ActionResult<List<WallpaperDto>>> GetUsers([FromQuery] bool includeWallpapers = false)
+        {
+            if (includeWallpapers)
+            {
+                var usersResult = await _userService.GetAsync();
+                return usersResult.IsSuccess
+                    ? Ok(usersResult.Value.Select(u => _userMapper.MapToUserDto(u, includeWallpapers)))
+                    : BadRequest(usersResult.Error);
+            }
+            else
+            {
+                var usersResult = await _userService.GetAsync();
+                return usersResult.IsSuccess
+                    ? Ok(usersResult.Value.Select(u => _userMapper.MapToUserDto(u, includeWallpapers)))
+                    : BadRequest(usersResult.Error);
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<Guid>> CreateUser([FromBody] UserRequest request)
         {
@@ -62,33 +68,22 @@ namespace WallpaperStore.API.Controllers
             return Ok(createUserResult.Value);
         }
 
-        [HttpPost("{userId}/saved-wallpapers")]
-        public async Task<ActionResult<Guid>> SaveWallpaper(Guid userId, [FromBody] SaveWallpaperRequest request)
+        [HttpPost("{userId}")]
+        public async Task<ActionResult<Guid>> UpdateUsername(Guid userId, string newName)
         {
-            await _userService.SaveWallpaperAsync(
-                        userId,
-                        request.WallpaperId,
-                        request.IsFavorite);
-            return Ok();
+            var updateResult = await _userService.UpdateAsync(userId, newName);
+            if(updateResult.IsFailure)
+                return BadRequest(updateResult.Error);
+            return Ok(updateResult.Value);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<WallpaperResponse>>> GetUsers([FromQuery] bool includeWallpapers = false)
-        { 
-            if (includeWallpapers)
-            {
-                var usersResult = await _userService.GetAsync();
-                return usersResult.IsSuccess
-                    ? Ok(usersResult.Value.Select(u => _userMapper.MapToUserResponse(u, includeWallpapers)))
-                    : BadRequest(usersResult.Error);
-            }
-            else
-            {
-                var usersResult = await _userService.GetAsync();
-                return usersResult.IsSuccess 
-                    ? Ok(usersResult.Value.Select(u => _userMapper.MapToUserResponse(u, includeWallpapers))) 
-                    : BadRequest(usersResult.Error);
-            }
+        [HttpDelete("{userId}")]
+        public async Task<ActionResult<Guid>> DeleteUser(Guid userId)
+        {
+            var updateResult = await _userService.DeleteAsync(userId);
+            if (updateResult.IsFailure)
+                return BadRequest(updateResult.Error);
+            return Ok();
         }
     }
 }

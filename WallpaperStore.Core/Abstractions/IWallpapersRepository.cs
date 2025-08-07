@@ -8,5 +8,6 @@ namespace WallpaperStore.DataAccess.Repositories
         Task<Result<Guid>> AddWallpaperAsync(Guid userId, Wallpaper wallpaper, CancellationToken ct = default);
         Task<Result<List<Wallpaper>>> GetAsync();
         Task<Result<List<Wallpaper>>> GetUserWallpapersAsync(Guid userId);
+
     }
 }

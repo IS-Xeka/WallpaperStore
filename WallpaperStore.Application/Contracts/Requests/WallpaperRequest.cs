@@ -6,7 +6,6 @@ namespace WallpaperStore.API.Contracts
         string Title,
         string Description,
         string Url,
-        decimal Price,
-        Guid OwnerId
+        decimal Price
         );
 }

@@ -5,11 +5,11 @@ namespace WallpaperStore.Application.Mapping;
 
 public class UserMapper : IUserMapper
 {
-    public UserResponse MapToUserResponse(User user, bool withWallpapers = false)
+    public UserDto MapToUserDto(User user, bool withWallpapers = false)
     {
         var addedWallpapers = !withWallpapers || user.AddedWallpapers is null
-            ? Array.Empty<WallpaperResponse>()
-            : user.AddedWallpapers.Select(w => new WallpaperResponse(
+            ? Array.Empty<WallpaperDto>()
+            : user.AddedWallpapers.Select(w => new WallpaperDto(
                 w.Id,
                 w.Title,
                 w.Description,
@@ -18,8 +18,8 @@ public class UserMapper : IUserMapper
                 w.OwnerId)).ToArray();
 
         var savedWallpapers = !withWallpapers || user.SavedWallpapers is null
-            ? Array.Empty<WallpaperResponse>()
-            : user.SavedWallpapers.Select(w => new WallpaperResponse(
+            ? Array.Empty<WallpaperDto>()
+            : user.SavedWallpapers.Select(w => new WallpaperDto(
                 w.Wallpaper.Id,
                 w.Wallpaper.Title,
                 w.Wallpaper.Description,
@@ -27,7 +27,7 @@ public class UserMapper : IUserMapper
                 w.Wallpaper.Price,
                 w.Wallpaper.OwnerId)).ToArray();
 
-        return new UserResponse(
+        return new UserDto(
             user.Id,
             user.Name,
             user.Email,

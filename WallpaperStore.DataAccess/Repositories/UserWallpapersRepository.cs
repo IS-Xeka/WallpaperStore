@@ -67,7 +67,7 @@ public class UserWallpapersRepository : IUserWallpapersRepository
     public async Task<Result<List<UserSavedWallpaper>>> GetAllSavedWallpapersAsync(
         Guid? userId = null,
         Guid? wallpaperId = null,
-        bool includeWallpapers = false,
+        bool includeWallpapers = true,
         CancellationToken ct = default)
     {
         try

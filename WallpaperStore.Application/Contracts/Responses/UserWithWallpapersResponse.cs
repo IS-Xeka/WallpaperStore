@@ -9,7 +9,7 @@ namespace WallpaperStore.API.Contracts
         DateTime RegisterDate,
         DateTime? LastTimeOnline,
         bool IsPublicProfile,
-        IReadOnlyCollection<WallpaperResponse> AddedWallpapers,
-        IReadOnlyCollection<WallpaperResponse> SavedWallpapers
+        IReadOnlyCollection<WallpaperDto> AddedWallpapers,
+        IReadOnlyCollection<WallpaperDto> SavedWallpapers
         );
 }

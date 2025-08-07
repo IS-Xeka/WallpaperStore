@@ -5,6 +5,6 @@ namespace WallpaperStore.Application.Mapping
 {
     public interface IUserMapper
     {
-        UserResponse MapToUserResponse(User user, bool withWallpapers = false);
+        UserDto MapToUserDto(User user, bool withWallpapers = false);
     }
 }
